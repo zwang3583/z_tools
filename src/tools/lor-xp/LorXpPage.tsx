@@ -144,7 +144,7 @@ export default function LorXpPage() {
               ? 'Max level reached.'
               : xpClamped
                 ? `Level ${progress.level} holds at most ${fmt.format(cap - 1)} XP; using that.`
-                : 'The bar under your champion in game.'}
+                : 'As shown on your XP bar.'}
           </p>
         </div>
 
@@ -280,8 +280,11 @@ export default function LorXpPage() {
                         {a.name}
                       </a>
                       <span className="adv-campaign">
-                        {campaignName[a.campaign]}
-                        <span className="adv-stars-inline"> · {a.stars}<Star /></span>
+                        <span className="adv-campaign-name">{campaignName[a.campaign]}</span>
+                        <span className="adv-stars-inline">
+                          {a.stars}
+                          <Star />
+                        </span>
                       </span>
                     </th>
                     <td className="num stars col-stars">

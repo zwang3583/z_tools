@@ -12,7 +12,7 @@ Mode: Operate. Audience: Path of Champions players planning a grind, glancing be
 ## Direction contract
 FORM: game-case shelf — each tool's game owns a spine banner hue (seed:de21eddc4cd0e215, assigned candidate 5).
 THESIS: A shelf of game cases, not a SaaS dashboard. Every game gets one banner hue the way a platform owns its spine band; the shell stays neutral so a second game slots in by adding a hue. Refuses the grey card grid with one accent.
-OWN-WORLD: Case-plastic charcoal ground with a cooler panel layer, hairline rules. Barlow for UI and tabular data, Barlow Condensed semibold uppercase for spine titles only. LoR banner: hextech gold on deep navy. Gold also marks "fewest runs".
+OWN-WORLD: Case-plastic charcoal ground with a cooler panel layer, hairline rules. Barlow for UI and tabular data, Barlow Condensed semibold for spine voice only: spine and banner titles, the wordmark, and multiplier labels (5× to 30×). LoR banner: hextech gold on deep navy. Gold also marks "fewest runs".
 FIRST VIEWPORT: Top navbar = row of spines (game band + tool name). Below, the LoR banner header carrying game + tool name. Inputs (level, XP into level with "/ max", target) in one compact row; immediately under it the fewest-runs strip: six multiplier columns, each runs count + adventure name. Then the full adventure table.
 STORY: Player types what the game shows, sees the answer in the strip without scrolling, then the table explains alternatives and ties.
 SIGNATURE: The active tool's spine extends down into the page as its banner, so the navbar tab and header read as one case spine in the game's hue.

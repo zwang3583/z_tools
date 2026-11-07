@@ -778,6 +778,57 @@ h2 {
     gap: var(--space-4);
   }
 
+  .banner-inner {
+    padding-block: var(--space-3);
+  }
+
+  .banner-title {
+    font-size: var(--step-3);
+  }
+
+  .page {
+    padding-top: var(--space-5);
+  }
+
+  .inputs {
+    gap: var(--space-3) var(--space-4);
+    padding-bottom: var(--space-5);
+  }
+
+  .field input {
+    font-size: var(--step-2);
+  }
+
+  .totals {
+    gap: var(--space-5);
+  }
+
+  .totals > div {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+  }
+
+  .totals dt {
+    margin: 0;
+  }
+
+  .totals dd {
+    font-size: var(--step-2);
+  }
+
+  .best {
+    padding: var(--space-5) 0;
+  }
+
+  .best .section-note {
+    display: none;
+  }
+
+  .best-cell {
+    padding: var(--space-3);
+  }
+
   .inputs {
     grid-template-columns: 1fr 1fr;
   }
@@ -820,6 +871,17 @@ h2 {
     display: none;
   }
 
+  .adv-campaign {
+    display: flex;
+    gap: var(--space-2);
+  }
+
+  .adv-campaign-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .adv-stars-inline {
     display: inline;
     white-space: nowrap;
@@ -839,8 +901,9 @@ h2 {
     left: 0;
     z-index: 1;
     background: var(--panel);
-    min-width: 9.5rem;
-    max-width: 9.5rem;
+    min-width: 10.5rem;
+    max-width: 10.5rem;
+    border-right: 1px solid var(--rule);
   }
 
   .table thead .col-name {
