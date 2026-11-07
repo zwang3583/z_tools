@@ -653,7 +653,7 @@ h2 {
 }
 
 .table tbody tr:hover > * {
-  background: color-mix(in srgb, var(--panel-2) 70%, transparent);
+  background: var(--panel-2);
 }
 
 .col-name {
@@ -684,6 +684,10 @@ h2 {
   white-space: nowrap;
 }
 
+.adv-stars-inline {
+  display: none;
+}
+
 .star {
   width: 0.75rem;
   height: 0.75rem;
@@ -700,7 +704,7 @@ h2 {
 .runs.is-best {
   color: var(--accent);
   font-weight: 600;
-  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
 }
 
 .sort {
@@ -808,12 +812,35 @@ h2 {
     border-top: 0;
   }
 
+  .table {
+    min-width: 34rem;
+  }
+
+  .table .col-stars {
+    display: none;
+  }
+
+  .adv-stars-inline {
+    display: inline;
+    white-space: nowrap;
+  }
+
+  .adv-route {
+    white-space: normal;
+  }
+
+  .table th,
+  .table td {
+    padding-inline: var(--space-2);
+  }
+
   .table .col-name {
     position: sticky;
     left: 0;
     z-index: 1;
     background: var(--panel);
-    min-width: 11rem;
+    min-width: 9.5rem;
+    max-width: 9.5rem;
   }
 
   .table thead .col-name {

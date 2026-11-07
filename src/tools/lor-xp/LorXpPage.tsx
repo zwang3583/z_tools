@@ -263,7 +263,7 @@ export default function LorXpPage() {
               <thead>
                 <tr>
                   <SortHeader label="Adventure" k="name" sort={sort} onSort={onSort} className="col-name" />
-                  <SortHeader label="Stars" k="stars" sort={sort} onSort={onSort} className="num" />
+                  <SortHeader label="Stars" k="stars" sort={sort} onSort={onSort} className="num col-stars" />
                   <SortHeader label="XP / run" k="xp" sort={sort} onSort={onSort} className="num" />
                   {MULTIPLIERS.map((m) => (
                     <th key={m} scope="col" className="num col-mult">
@@ -279,9 +279,12 @@ export default function LorXpPage() {
                       <a href={a.wikiUrl} target="_blank" rel="noreferrer" className="adv-name">
                         {a.name}
                       </a>
-                      <span className="adv-campaign">{campaignName[a.campaign]}</span>
+                      <span className="adv-campaign">
+                        {campaignName[a.campaign]}
+                        <span className="adv-stars-inline"> · {a.stars}<Star /></span>
+                      </span>
                     </th>
-                    <td className="num stars">
+                    <td className="num stars col-stars">
                       {a.stars}
                       <Star />
                     </td>
