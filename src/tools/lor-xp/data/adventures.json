@@ -1,0 +1,497 @@
+[
+  {
+    "id": "teemoWorld",
+    "name": "The Swift Scout",
+    "campaign": "world",
+    "stars": 0,
+    "xp": 100,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/The_Swift_Scout"
+  },
+  {
+    "id": "missfortuneWorld",
+    "name": "The Bounty Hunter",
+    "campaign": "world",
+    "stars": 0.5,
+    "xp": 100,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/The_Bounty_Hunter"
+  },
+  {
+    "id": "garenWorld",
+    "name": "The Might of Demacia",
+    "campaign": "world",
+    "stars": 1,
+    "xp": 305,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/The_Might_of_Demacia"
+  },
+  {
+    "id": "luluWorld",
+    "name": "The Fae Sorceress",
+    "campaign": "world",
+    "stars": 1,
+    "xp": 305,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/The_Fae_Sorceress"
+  },
+  {
+    "id": "warwickWorld",
+    "name": "The Wrath of Zaun",
+    "campaign": "world",
+    "stars": 1,
+    "xp": 210,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/The_Wrath_of_Zaun"
+  },
+  {
+    "id": "gangplankWorld",
+    "name": "The Saltwater Scourge",
+    "campaign": "world",
+    "stars": 1.5,
+    "xp": 605,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/The_Saltwater_Scourge"
+  },
+  {
+    "id": "ezrealWorld",
+    "name": "The Prodigal Explorer",
+    "campaign": "world",
+    "stars": 1.5,
+    "xp": 605,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/The_Prodigal_Explorer"
+  },
+  {
+    "id": "zedWorld",
+    "name": "The Master of Shadows",
+    "campaign": "world",
+    "stars": 2,
+    "xp": 1110,
+    "shortPathXp": 985,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/The_Master_of_Shadows"
+  },
+  {
+    "id": "nautilusWorld",
+    "name": "The Titan of the Depths",
+    "campaign": "world",
+    "stars": 2,
+    "xp": 985,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/The_Titan_of_the_Depths"
+  },
+  {
+    "id": "dariusWorld",
+    "name": "The Hand of Noxus",
+    "campaign": "world",
+    "stars": 2,
+    "xp": 985,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/The_Hand_of_Noxus"
+  },
+  {
+    "id": "viktorWorld",
+    "name": "The Machine Herald",
+    "campaign": "world",
+    "stars": 2.5,
+    "xp": 1425,
+    "shortPathXp": 1245,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/The_Machine_Herald"
+  },
+  {
+    "id": "dravenWorld",
+    "name": "The Glorious Executioner",
+    "campaign": "world",
+    "stars": 2.5,
+    "xp": 1425,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/The_Glorious_Executioner"
+  },
+  {
+    "id": "blossomsWorld",
+    "name": "Blossoms and Mushrooms",
+    "campaign": "world",
+    "stars": 2.5,
+    "xp": 1425,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/Blossoms_and_Mushrooms"
+  },
+  {
+    "id": "kaisaWorld",
+    "name": "Daughter of the Void",
+    "campaign": "world",
+    "stars": 3,
+    "xp": 1925,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/Daughter_of_the_Void"
+  },
+  {
+    "id": "nagakabourosWorld",
+    "name": "The Deep Voice Below the Waves",
+    "campaign": "world",
+    "stars": 3,
+    "xp": 2475,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/The_Deep_Voice_Below_the_Waves"
+  },
+  {
+    "id": "threshWorld",
+    "name": "The Collector of Souls",
+    "campaign": "world",
+    "stars": 3,
+    "xp": 1925,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/The_Collector_of_Souls"
+  },
+  {
+    "id": "elderdragonWorld",
+    "name": "The Dragonsire",
+    "campaign": "world",
+    "stars": 3,
+    "xp": 1925,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/The_Dragonsire"
+  },
+  {
+    "id": "galioWorld",
+    "name": "The Colossus",
+    "campaign": "world",
+    "stars": 3.5,
+    "xp": 3100,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/The_Colossus"
+  },
+  {
+    "id": "fiddlesticksWorld",
+    "name": "The Ancient Fear",
+    "campaign": "world",
+    "stars": 3.5,
+    "xp": 3015,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/The_Ancient_Fear"
+  },
+  {
+    "id": "heistWorld",
+    "name": "The Grand Heist",
+    "campaign": "world",
+    "stars": 3.5,
+    "xp": 1935,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/The_Grand_Heist"
+  },
+  {
+    "id": "asolWorld",
+    "name": "The Star Forger",
+    "campaign": "world",
+    "stars": 4,
+    "xp": 4505,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/The_Star_Forger"
+  },
+  {
+    "id": "yasuoWorld",
+    "name": "The Unforgiven",
+    "campaign": "world",
+    "stars": 4.5,
+    "xp": 4470,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/The_Unforgiven"
+  },
+  {
+    "id": "lissandraWorld",
+    "name": "The Frost Witch",
+    "campaign": "world",
+    "stars": 5,
+    "xp": 5925,
+    "shortPathXp": 4360,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/The_Frost_Witch"
+  },
+  {
+    "id": "swainWorld",
+    "name": "The Noxian Grand General",
+    "campaign": "world",
+    "stars": 5,
+    "xp": 5230,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:World_Adventures/The_Noxian_Grand_General"
+  },
+  {
+    "id": "fizzNightmare",
+    "name": "The Tidal Trickster",
+    "campaign": "nightmare",
+    "stars": 4.5,
+    "xp": 5230,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Nightmare_Adventures/The_Tidal_Trickster"
+  },
+  {
+    "id": "viegoNightmare",
+    "name": "The Ruined King",
+    "campaign": "nightmare",
+    "stars": 5,
+    "xp": 6030,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Nightmare_Adventures/The_Ruined_King"
+  },
+  {
+    "id": "nagakabourosNightmare",
+    "name": "The Deep Voice Below the Waves",
+    "campaign": "nightmare",
+    "stars": 6,
+    "xp": 5230,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Nightmare_Adventures/The_Deep_Voice_Below_the_Waves"
+  },
+  {
+    "id": "fiddlesticksNightmare",
+    "name": "The Ancient Fear",
+    "campaign": "nightmare",
+    "stars": 6.5,
+    "xp": 6030,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Nightmare_Adventures/The_Ancient_Fear"
+  },
+  {
+    "id": "zoeNightmare",
+    "name": "With Friends Like These...",
+    "campaign": "nightmare",
+    "stars": 10,
+    "xp": 11970,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Nightmare_Adventures/With_Friends_Like_These..."
+  },
+  {
+    "id": "illaoiArcane2",
+    "name": "The Kraken Priestess",
+    "campaign": "legends-of-arcane",
+    "stars": 1.5,
+    "xp": 305,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Legends_of_Arcane/The_Kraken_Priestess"
+  },
+  {
+    "id": "azirArcane2",
+    "name": "The Emperor of the Sands",
+    "campaign": "legends-of-arcane",
+    "stars": 2.5,
+    "xp": 985,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Legends_of_Arcane/The_Emperor_of_the_Sands"
+  },
+  {
+    "id": "garenArcane2",
+    "name": "The Might of Demacia",
+    "campaign": "legends-of-arcane",
+    "stars": 3.5,
+    "xp": 3100,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Legends_of_Arcane/The_Might_of_Demacia"
+  },
+  {
+    "id": "warwickArcane2",
+    "name": "The Wrath of Zaun",
+    "campaign": "legends-of-arcane",
+    "stars": 4.5,
+    "xp": 4840,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Legends_of_Arcane/The_Wrath_of_Zaun"
+  },
+  {
+    "id": "karmaArcane2",
+    "name": "The Enlightened One",
+    "campaign": "legends-of-arcane",
+    "stars": 5.5,
+    "xp": 6030,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Legends_of_Arcane/The_Enlightened_One"
+  },
+  {
+    "id": "asolArcane2",
+    "name": "The Star Forger",
+    "campaign": "legends-of-arcane",
+    "stars": 6.5,
+    "xp": 10670,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Legends_of_Arcane/The_Star_Forger"
+  },
+  {
+    "id": "settTitan",
+    "name": "The Boss",
+    "campaign": "titans-of-runeterra",
+    "stars": 2,
+    "xp": 985,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Titans_of_Runeterra/The_Boss"
+  },
+  {
+    "id": "mordekaiserTitan",
+    "name": "The Iron Revenant",
+    "campaign": "titans-of-runeterra",
+    "stars": 3,
+    "xp": 1925,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Titans_of_Runeterra/The_Iron_Revenant"
+  },
+  {
+    "id": "nautilusTitan",
+    "name": "The Titan of the Depths",
+    "campaign": "titans-of-runeterra",
+    "stars": 4,
+    "xp": 5230,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Titans_of_Runeterra/The_Titan_of_the_Depths"
+  },
+  {
+    "id": "volibearTitan",
+    "name": "The Relentless Storm",
+    "campaign": "titans-of-runeterra",
+    "stars": 5,
+    "xp": 5230,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Titans_of_Runeterra/The_Relentless_Storm"
+  },
+  {
+    "id": "elderdragonTitan",
+    "name": "The Dragonsire",
+    "campaign": "titans-of-runeterra",
+    "stars": 6,
+    "xp": 6030,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Titans_of_Runeterra/The_Dragonsire"
+  },
+  {
+    "id": "samiraRogue",
+    "name": "The Desert Rose",
+    "campaign": "rogues-of-runeterra",
+    "stars": 2.5,
+    "xp": 1425,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Rogues_of_Runeterra/The_Desert_Rose"
+  },
+  {
+    "id": "dianaRogue",
+    "name": "Scorn of the Moon",
+    "campaign": "rogues-of-runeterra",
+    "stars": 3.5,
+    "xp": 3015,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Rogues_of_Runeterra/Scorn_of_the_Moon"
+  },
+  {
+    "id": "yiRogue",
+    "name": "The Wuju Bladesman",
+    "campaign": "rogues-of-runeterra",
+    "stars": 4.5,
+    "xp": 5100,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Rogues_of_Runeterra/The_Wuju_Bladesman"
+  },
+  {
+    "id": "tfRogue",
+    "name": "The Card Master",
+    "campaign": "rogues-of-runeterra",
+    "stars": 5.5,
+    "xp": 5230,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Rogues_of_Runeterra/The_Card_Master"
+  },
+  {
+    "id": "heistRogue",
+    "name": "The Grand Heist",
+    "campaign": "rogues-of-runeterra",
+    "stars": 6.5,
+    "xp": 5230,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Rogues_of_Runeterra/The_Grand_Heist"
+  },
+  {
+    "id": "kalistaSB",
+    "name": "The Spear of Vengeance",
+    "campaign": "spirit-blossom",
+    "stars": 2,
+    "xp": 1425,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Spirit_Blossom_(Campaign)/The_Spear_of_Vengeance"
+  },
+  {
+    "id": "namiSB",
+    "name": "The Tidecaller",
+    "campaign": "spirit-blossom",
+    "stars": 3,
+    "xp": 2475,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Spirit_Blossom_(Campaign)/The_Tidecaller"
+  },
+  {
+    "id": "seraphineSB",
+    "name": "The Starry-Eyed Songstress",
+    "campaign": "spirit-blossom",
+    "stars": 4,
+    "xp": 3200,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Spirit_Blossom_(Campaign)/The_Starry-Eyed_Songstress"
+  },
+  {
+    "id": "jarvanSB",
+    "name": "The Exemplar of Demacia",
+    "campaign": "spirit-blossom",
+    "stars": 5,
+    "xp": 5230,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Spirit_Blossom_(Campaign)/The_Exemplar_of_Demacia"
+  },
+  {
+    "id": "blossomsSB",
+    "name": "Blossoms and Mushrooms",
+    "campaign": "spirit-blossom",
+    "stars": 6,
+    "xp": 6030,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Spirit_Blossom_(Campaign)/Blossoms_and_Mushrooms"
+  },
+  {
+    "id": "caitlynTFT",
+    "name": "The Sheriff of Piltover",
+    "campaign": "teamfight-adventures",
+    "stars": 2.5,
+    "xp": 1425,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Teamfight_Adventures/The_Sheriff_of_Piltover"
+  },
+  {
+    "id": "mfTFT",
+    "name": "The Bounty Hunter",
+    "campaign": "teamfight-adventures",
+    "stars": 3.5,
+    "xp": 3015,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Teamfight_Adventures/The_Bounty_Hunter"
+  },
+  {
+    "id": "luxTFT",
+    "name": "The Lady of Luminosity",
+    "campaign": "teamfight-adventures",
+    "stars": 4.5,
+    "xp": 5230,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Teamfight_Adventures/The_Lady_of_Luminosity"
+  },
+  {
+    "id": "nasusTFT",
+    "name": "The Curator of the Sands",
+    "campaign": "teamfight-adventures",
+    "stars": 5.5,
+    "xp": 6030,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Teamfight_Adventures/The_Curator_of_the_Sands"
+  },
+  {
+    "id": "baronTFT",
+    "name": "Scourge of the Pit",
+    "campaign": "teamfight-adventures",
+    "stars": 6.5,
+    "xp": 6030,
+    "shortPathXp": null,
+    "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Teamfight_Adventures/Scourge_of_the_Pit"
+  }
+]
