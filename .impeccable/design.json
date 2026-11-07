@@ -1,0 +1,423 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-07T23:27:13.931Z",
+  "title": "Design System: z-tools",
+  "extensions": {
+    "colorMeta": {
+      "case-charcoal": {
+        "role": "neutral",
+        "displayName": "Case Charcoal",
+        "canonical": "#101216",
+        "tonalRamp": [
+          "#22252a",
+          "#3b404a",
+          "#525a6b",
+          "#68748d",
+          "#8791a6",
+          "#a8afbd",
+          "#cccfd7",
+          "#f1f2f4"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel",
+        "canonical": "#171a20",
+        "tonalRamp": [
+          "#22252a",
+          "#3a404a",
+          "#515a6b",
+          "#68748d",
+          "#8691a7",
+          "#a8afbd",
+          "#cbcfd7",
+          "#f1f2f4"
+        ]
+      },
+      "panel-raised": {
+        "role": "neutral",
+        "displayName": "Panel Raised",
+        "canonical": "#1e222a",
+        "tonalRamp": [
+          "#22252a",
+          "#3a404a",
+          "#515a6c",
+          "#67748e",
+          "#8691a7",
+          "#a7afbe",
+          "#cbcfd7",
+          "#f1f2f4"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#2b303a",
+        "tonalRamp": [
+          "#23252a",
+          "#3b404a",
+          "#535a6a",
+          "#69758b",
+          "#8791a5",
+          "#a9afbc",
+          "#cccfd6",
+          "#f1f2f3"
+        ]
+      },
+      "hairline-strong": {
+        "role": "neutral",
+        "displayName": "Hairline Strong",
+        "canonical": "#3a404c",
+        "tonalRamp": [
+          "#23252a",
+          "#3c4049",
+          "#545b69",
+          "#6b758a",
+          "#8992a4",
+          "#aab0bb",
+          "#ccd0d6",
+          "#f1f2f3"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Text",
+        "canonical": "#eceef2",
+        "tonalRamp": [
+          "#22252b",
+          "#393f4b",
+          "#50596d",
+          "#657390",
+          "#8490a9",
+          "#a6aebf",
+          "#cbcfd8",
+          "#f1f2f4"
+        ]
+      },
+      "text-muted": {
+        "role": "neutral",
+        "displayName": "Text Muted",
+        "canonical": "#a9b0bc",
+        "tonalRamp": [
+          "#232529",
+          "#3c4148",
+          "#555c68",
+          "#6c7789",
+          "#8a93a3",
+          "#aab0bb",
+          "#cdd0d5",
+          "#f1f2f3"
+        ]
+      },
+      "text-faint": {
+        "role": "neutral",
+        "displayName": "Text Faint",
+        "canonical": "#8a92a0",
+        "tonalRamp": [
+          "#242629",
+          "#3d4147",
+          "#565c67",
+          "#6e7786",
+          "#8c94a1",
+          "#acb1b9",
+          "#cdd0d5",
+          "#f1f2f3"
+        ]
+      },
+      "warn-amber": {
+        "role": "semantic",
+        "displayName": "Warn Amber",
+        "canonical": "#f0b45a",
+        "tonalRamp": [
+          "#3b2a12",
+          "#6b4a19",
+          "#a06c1c",
+          "#da8e1b",
+          "#eaa742",
+          "#eabe7b",
+          "#eed7b4",
+          "#f9f4eb"
+        ]
+      },
+      "focus-blue": {
+        "role": "semantic",
+        "displayName": "Focus Blue",
+        "canonical": "#8fb8ff",
+        "tonalRamp": [
+          "#0e203f",
+          "#113573",
+          "#0f49ad",
+          "#085ced",
+          "#327bfb",
+          "#70a1f5",
+          "#aec8f4",
+          "#eaf0fa"
+        ]
+      },
+      "shell-band": {
+        "role": "neutral",
+        "displayName": "Shell Band (fallback --band)",
+        "canonical": "#262b34",
+        "tonalRamp": [
+          "#22252a",
+          "#3b404a",
+          "#525b6b",
+          "#69758c",
+          "#8792a6",
+          "#a8b0bd",
+          "#ccd0d7",
+          "#f1f2f4"
+        ]
+      },
+      "lor-band-navy": {
+        "role": "secondary",
+        "displayName": "Deep Runeterra Navy (LoR --band)",
+        "canonical": "#0B1A33",
+        "tonalRamp": [
+          "#162236",
+          "#233a62",
+          "#2b5291",
+          "#3068c4",
+          "#5586d7",
+          "#88a8dd",
+          "#bbcbe8",
+          "#edf1f8"
+        ]
+      },
+      "lor-ink-parchment": {
+        "role": "secondary",
+        "displayName": "Parchment Ink (LoR --band-ink)",
+        "canonical": "#E9D8A6",
+        "tonalRamp": [
+          "#352e17",
+          "#605125",
+          "#8e762f",
+          "#c09c35",
+          "#d3b45a",
+          "#dac68b",
+          "#e6dbbc",
+          "#f7f5ed"
+        ]
+      },
+      "lor-accent-hextech-gold": {
+        "role": "primary",
+        "displayName": "Hextech Gold (LoR --accent)",
+        "canonical": "#C8AA6E",
+        "tonalRamp": [
+          "#312a1b",
+          "#584a2c",
+          "#826a3b",
+          "#ae8c47",
+          "#c4a669",
+          "#d0bc95",
+          "#e1d6c1",
+          "#f6f3ef"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Banner Display",
+        "purpose": "Tool banner title only; uppercase condensed spine voice."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Home page title."
+      },
+      "title": {
+        "displayName": "Section Title",
+        "purpose": "Section heads on tool pages."
+      },
+      "spine": {
+        "displayName": "Spine Voice",
+        "purpose": "Spine tab titles, wordmark, shelf titles and bands, multiplier labels. Never body or data."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Input values, totals and fewest-runs counts; tabular."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Copy and table cells; tabular figures inherited."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Table headers, chips, hints, meta lines."
+      }
+    },
+    "hueContract": {
+      "source": "src/tools/registry.ts (Tool.hue)",
+      "properties": {
+        "band": "--band",
+        "ink": "--band-ink",
+        "accent": "--accent"
+      },
+      "appliedTo": [
+        "spine tab (navbar)",
+        "shelf card (home)",
+        "tool route wrapper (banner and page)"
+      ],
+      "rule": "One triple per game. Adding a game adds a hue, never chrome."
+    },
+    "shadows": [
+      {
+        "name": "topbar-rule",
+        "value": "inset 0 -1px #2b303a",
+        "purpose": "Hairline under the topbar; a rule, not elevation. The system has no drop shadows."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Shared easing for color, background, border and opacity transitions."
+      },
+      {
+        "name": "duration-control",
+        "value": "150ms",
+        "purpose": "Inputs, chips, sort icons."
+      },
+      {
+        "name": "duration-surface",
+        "value": "180ms",
+        "purpose": "Spine tabs and shelf cards."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "transition-duration: 0ms",
+        "purpose": "Applied under prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact",
+        "value": "60rem"
+      },
+      {
+        "name": "phone",
+        "value": "36rem"
+      }
+    ],
+    "layout": {
+      "maxWidth": "76rem",
+      "gutter": "clamp(1rem, 3vw, 2rem)"
+    }
+  },
+  "components": [
+    {
+      "name": "Spine Tab",
+      "kind": "nav",
+      "refersTo": "spine-tab",
+      "description": "Navbar tab per tool, styled by its game hue; active spine continues into the banner.",
+      "html": "<nav class=\"ds-spines\"><a class=\"ds-spine\" href=\"#\"><span class=\"ds-spine-game\">Legends of Runeterra</span><span class=\"ds-spine-title\">Champion XP planner</span></a><a class=\"ds-spine is-active\" href=\"#\"><span class=\"ds-spine-game\">Legends of Runeterra</span><span class=\"ds-spine-title\">Champion XP planner</span></a></nav>",
+      "css": ":host{--bg:#101216;--panel:#171a20;--panel-2:#1e222a;--rule:#2b303a;--rule-strong:#3a404c;--text:#eceef2;--text-2:#a9b0bc;--text-3:#8a92a0;--focus:#8fb8ff;--band:#0B1A33;--band-ink:#E9D8A6;--accent:#C8AA6E;--font:\"Barlow\",system-ui,sans-serif;--font-spine:\"Barlow Condensed\",\"Barlow\",system-ui,sans-serif;--radius:6px;--ease:cubic-bezier(0.16,1,0.3,1);font-family:var(--font);font-variant-numeric:tabular-nums;color:var(--text)} .ds-spines{display:flex;gap:.5rem;background:var(--panel);box-shadow:inset 0 -1px var(--rule)} .ds-spine{display:flex;flex-direction:column;justify-content:center;gap:1px;padding:.5rem 1rem;border-top:3px solid var(--accent);background:color-mix(in srgb,var(--band) 55%,var(--panel));color:var(--text-2);text-decoration:none;white-space:nowrap;transition:background 180ms var(--ease),color 180ms var(--ease)} .ds-spine:hover{color:var(--text);background:color-mix(in srgb,var(--band) 85%,var(--panel))} .ds-spine.is-active{background:var(--band);color:var(--band-ink)} .ds-spine:focus-visible{outline:2px solid var(--focus);outline-offset:2px} .ds-spine-game{font-size:.6875rem;font-weight:500;letter-spacing:.04em;color:var(--accent)} .ds-spine-title{font-family:var(--font-spine);font-weight:600;font-size:1.0625rem;letter-spacing:.02em;text-transform:uppercase;line-height:1.1}"
+    },
+    {
+      "name": "Game Banner",
+      "kind": "custom",
+      "refersTo": "banner",
+      "description": "Full-bleed band in the game hue under the navbar.",
+      "html": "<div class=\"ds-banner\"><h1 class=\"ds-banner-title\">Champion XP planner</h1><p class=\"ds-banner-game\">Legends of Runeterra</p></div>",
+      "css": ":host{--bg:#101216;--panel:#171a20;--panel-2:#1e222a;--rule:#2b303a;--rule-strong:#3a404c;--text:#eceef2;--text-2:#a9b0bc;--text-3:#8a92a0;--focus:#8fb8ff;--band:#0B1A33;--band-ink:#E9D8A6;--accent:#C8AA6E;--font:\"Barlow\",system-ui,sans-serif;--font-spine:\"Barlow Condensed\",\"Barlow\",system-ui,sans-serif;--radius:6px;--ease:cubic-bezier(0.16,1,0.3,1);font-family:var(--font);font-variant-numeric:tabular-nums;color:var(--text)} .ds-banner{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.5rem 1.5rem;padding:1.5rem 2rem;background:var(--band);color:var(--band-ink);border-bottom:1px solid color-mix(in srgb,var(--accent) 40%,var(--band))} .ds-banner-title{margin:0;font-family:var(--font-spine);font-weight:600;font-size:2rem;letter-spacing:.01em;text-transform:uppercase;line-height:1} .ds-banner-game{margin:0;color:var(--accent);font-weight:500}"
+    },
+    {
+      "name": "Number Input",
+      "kind": "input",
+      "refersTo": "input-number",
+      "description": "Large tabular field with inline cap suffix and hint.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-label\" for=\"ds-xp\">XP into this level</label><div class=\"ds-xp\"><input id=\"ds-xp\" class=\"ds-input\" value=\"1000\" inputmode=\"numeric\"><span class=\"ds-cap\">/ 5,850</span></div><p class=\"ds-hint\">The bar under your champion in game.</p></div>",
+      "css": ":host{--bg:#101216;--panel:#171a20;--panel-2:#1e222a;--rule:#2b303a;--rule-strong:#3a404c;--text:#eceef2;--text-2:#a9b0bc;--text-3:#8a92a0;--focus:#8fb8ff;--band:#0B1A33;--band-ink:#E9D8A6;--accent:#C8AA6E;--font:\"Barlow\",system-ui,sans-serif;--font-spine:\"Barlow Condensed\",\"Barlow\",system-ui,sans-serif;--radius:6px;--ease:cubic-bezier(0.16,1,0.3,1);font-family:var(--font);font-variant-numeric:tabular-nums;color:var(--text)} .ds-field{max-width:12rem} .ds-label{display:block;margin-bottom:.5rem;font-weight:500} .ds-xp{position:relative;display:flex;align-items:center} .ds-input{width:100%;padding:.5rem 6.5rem .5rem .75rem;font:inherit;font-size:1.5rem;font-weight:500;font-variant-numeric:tabular-nums;color:var(--text);background:var(--panel-2);border:1px solid var(--rule-strong);border-radius:var(--radius);transition:border-color 150ms var(--ease)} .ds-input:hover{border-color:var(--text-3)} .ds-input:focus-visible{outline:2px solid var(--focus);outline-offset:0;border-color:transparent} .ds-cap{position:absolute;right:.75rem;color:var(--text-3);pointer-events:none} .ds-hint{margin:.5rem 0 0;font-size:.8125rem;color:var(--text-3)}"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Pill toggle; pressed state reveals an accent check.",
+      "html": "<button class=\"ds-chip\" aria-pressed=\"true\"><svg class=\"ds-check\" viewBox=\"0 0 12 12\" aria-hidden=\"true\"><path d=\"M2.5 6.2l2.3 2.3 4.7-4.9\"/></svg>Nightmare Adventures</button><button class=\"ds-chip\" aria-pressed=\"false\"><svg class=\"ds-check\" viewBox=\"0 0 12 12\" aria-hidden=\"true\"><path d=\"M2.5 6.2l2.3 2.3 4.7-4.9\"/></svg>Spirit Blossom</button>",
+      "css": ":host{--bg:#101216;--panel:#171a20;--panel-2:#1e222a;--rule:#2b303a;--rule-strong:#3a404c;--text:#eceef2;--text-2:#a9b0bc;--text-3:#8a92a0;--focus:#8fb8ff;--band:#0B1A33;--band-ink:#E9D8A6;--accent:#C8AA6E;--font:\"Barlow\",system-ui,sans-serif;--font-spine:\"Barlow Condensed\",\"Barlow\",system-ui,sans-serif;--radius:6px;--ease:cubic-bezier(0.16,1,0.3,1);font-family:var(--font);font-variant-numeric:tabular-nums;color:var(--text)} .ds-chip{display:inline-flex;align-items:center;gap:.5rem;min-height:2.25rem;padding:.25rem .75rem;font:inherit;font-size:.8125rem;font-weight:500;color:var(--text-3);background:transparent;border:1px solid var(--rule-strong);border-radius:999px;cursor:pointer;transition:background 150ms var(--ease),color 150ms var(--ease),border-color 150ms var(--ease)} .ds-chip:hover{color:var(--text);border-color:var(--text-3)} .ds-chip:focus-visible{outline:2px solid var(--focus);outline-offset:2px} .ds-chip[aria-pressed=true]{color:var(--text);background:var(--panel-2);border-color:color-mix(in srgb,var(--accent) 55%,var(--rule-strong))} .ds-check{width:.75rem;height:.75rem;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;opacity:0;transition:opacity 150ms var(--ease)} .ds-chip[aria-pressed=true] .ds-check{opacity:1;stroke:var(--accent)}"
+    },
+    {
+      "name": "Shelf Card",
+      "kind": "card",
+      "refersTo": "ruled-panel",
+      "description": "Home shelf entry with a vertical band in the game hue.",
+      "html": "<a class=\"ds-shelf\" href=\"#\"><span class=\"ds-shelf-band\">Legends of Runeterra</span><span class=\"ds-shelf-body\"><span class=\"ds-shelf-title\">Champion XP planner</span><span class=\"ds-shelf-summary\">Fewest Path of Champions runs to level a champion, from your exact XP.</span></span></a>",
+      "css": ":host{--bg:#101216;--panel:#171a20;--panel-2:#1e222a;--rule:#2b303a;--rule-strong:#3a404c;--text:#eceef2;--text-2:#a9b0bc;--text-3:#8a92a0;--focus:#8fb8ff;--band:#0B1A33;--band-ink:#E9D8A6;--accent:#C8AA6E;--font:\"Barlow\",system-ui,sans-serif;--font-spine:\"Barlow Condensed\",\"Barlow\",system-ui,sans-serif;--radius:6px;--ease:cubic-bezier(0.16,1,0.3,1);font-family:var(--font);font-variant-numeric:tabular-nums;color:var(--text)} .ds-shelf{display:flex;min-height:9rem;max-width:22rem;border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;text-decoration:none;color:var(--text);background:var(--panel);transition:border-color 180ms var(--ease)} .ds-shelf:hover{border-color:var(--accent)} .ds-shelf:focus-visible{outline:2px solid var(--focus);outline-offset:2px} .ds-shelf-band{writing-mode:vertical-rl;transform:rotate(180deg);padding:.75rem .5rem;background:var(--band);color:var(--accent);font-family:var(--font-spine);font-weight:600;font-size:.8125rem;letter-spacing:.06em;text-transform:uppercase} .ds-shelf-body{display:flex;flex-direction:column;gap:.5rem;padding:1rem 1.5rem} .ds-shelf-title{font-family:var(--font-spine);font-weight:600;font-size:1.5rem;text-transform:uppercase;line-height:1.1} .ds-shelf-summary{color:var(--text-2)}"
+    },
+    {
+      "name": "Answer Strip",
+      "kind": "custom",
+      "refersTo": "ruled-panel",
+      "description": "Hairline-divided cells; run count in accent marks the answer.",
+      "html": "<ol class=\"ds-strip\"><li class=\"ds-cell\"><span class=\"ds-mult\">5× XP</span><span class=\"ds-runs\">9<span class=\"ds-unit\"> runs</span></span><span class=\"ds-name\">With Friends Like These...</span><span class=\"ds-meta\">Nightmare Adventures</span></li><li class=\"ds-cell\"><span class=\"ds-mult\">10× XP</span><span class=\"ds-runs\">5<span class=\"ds-unit\"> runs</span></span><span class=\"ds-name\">With Friends Like These...</span><span class=\"ds-meta\">Tied with The Star Forger</span></li><li class=\"ds-cell\"><span class=\"ds-mult\">15× XP</span><span class=\"ds-runs\">3<span class=\"ds-unit\"> runs</span></span><span class=\"ds-name\">With Friends Like These...</span><span class=\"ds-meta\">Nightmare Adventures</span></li></ol>",
+      "css": ":host{--bg:#101216;--panel:#171a20;--panel-2:#1e222a;--rule:#2b303a;--rule-strong:#3a404c;--text:#eceef2;--text-2:#a9b0bc;--text-3:#8a92a0;--focus:#8fb8ff;--band:#0B1A33;--band-ink:#E9D8A6;--accent:#C8AA6E;--font:\"Barlow\",system-ui,sans-serif;--font-spine:\"Barlow Condensed\",\"Barlow\",system-ui,sans-serif;--radius:6px;--ease:cubic-bezier(0.16,1,0.3,1);font-family:var(--font);font-variant-numeric:tabular-nums;color:var(--text)} .ds-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0;padding:0;list-style:none;border:1px solid var(--rule);border-radius:var(--radius);background:var(--panel)} .ds-cell{display:flex;flex-direction:column;gap:.25rem;padding:1rem;min-width:0} .ds-cell+.ds-cell{border-left:1px solid var(--rule)} .ds-mult{font-family:var(--font-spine);font-weight:600;font-size:1.0625rem;letter-spacing:.04em;color:var(--text-2)} .ds-runs{font-size:2rem;font-weight:600;color:var(--accent);line-height:1.1} .ds-unit{font-size:.9375rem;font-weight:500;color:var(--text-2)} .ds-name{font-weight:500} .ds-meta{font-size:.8125rem;color:var(--text-3)}"
+    },
+    {
+      "name": "Data Table",
+      "kind": "custom",
+      "refersTo": "table-head",
+      "description": "Hairline-ruled sortable table; best cells hold the accent.",
+      "html": "<div class=\"ds-wrap\"><table class=\"ds-table\"><thead><tr><th><button class=\"ds-sort\">Adventure</button></th><th class=\"ds-num\"><button class=\"ds-sort\">XP / run<svg class=\"ds-sort-icon is-active\" viewBox=\"0 0 10 10\" aria-hidden=\"true\"><path d=\"M2 3.5l3 3 3-3\"/></svg></button></th><th class=\"ds-num ds-mult\">5×</th><th class=\"ds-num ds-mult\">10×</th></tr></thead><tbody><tr><th>The Star Forger<span class=\"ds-sub\">Legends of Arcane</span></th><td class=\"ds-num\">10,670</td><td class=\"ds-num\">10</td><td class=\"ds-num ds-best\">5</td></tr><tr><th>The Ruined King<span class=\"ds-sub\">Nightmare Adventures</span></th><td class=\"ds-num\">6,030</td><td class=\"ds-num\">17</td><td class=\"ds-num\">9</td></tr></tbody></table></div>",
+      "css": ":host{--bg:#101216;--panel:#171a20;--panel-2:#1e222a;--rule:#2b303a;--rule-strong:#3a404c;--text:#eceef2;--text-2:#a9b0bc;--text-3:#8a92a0;--focus:#8fb8ff;--band:#0B1A33;--band-ink:#E9D8A6;--accent:#C8AA6E;--font:\"Barlow\",system-ui,sans-serif;--font-spine:\"Barlow Condensed\",\"Barlow\",system-ui,sans-serif;--radius:6px;--ease:cubic-bezier(0.16,1,0.3,1);font-family:var(--font);font-variant-numeric:tabular-nums;color:var(--text)} .ds-wrap{overflow-x:auto;border:1px solid var(--rule);border-radius:var(--radius);background:var(--panel)} .ds-table{width:100%;border-collapse:collapse} .ds-table th,.ds-table td{padding:.5rem .75rem;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top} .ds-table tbody tr:last-child>*{border-bottom:0} .ds-table tbody th{font-weight:500} .ds-table thead th{background:var(--panel-2);color:var(--text-2);font-weight:500;font-size:.8125rem;white-space:nowrap;vertical-align:bottom} .ds-table .ds-num{text-align:right} .ds-table thead .ds-mult{font-family:var(--font-spine);font-weight:600;font-size:.9375rem;letter-spacing:.04em} .ds-table tbody tr:hover>*{background:var(--panel-2)} .ds-sub{display:block;font-size:.8125rem;color:var(--text-3);font-weight:400} .ds-best{color:var(--accent);font-weight:600;background:color-mix(in srgb,var(--accent) 18%,transparent)} .ds-sort{display:inline-flex;align-items:center;gap:.25rem;padding:0;font:inherit;color:inherit;background:none;border:0;cursor:pointer} .ds-sort:hover{color:var(--text)} .ds-sort:focus-visible{outline:2px solid var(--focus);outline-offset:2px} .ds-sort-icon{width:.625rem;height:.625rem;fill:none;stroke:currentColor;stroke-width:1.5;opacity:.35} .ds-sort-icon.is-active{opacity:1;stroke:var(--accent)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Game-Case Shelf",
+    "overview": "z-tools is a shelf of game cases, not a SaaS dashboard. The shell is case-plastic charcoal with a cooler panel layer and hairline rules; it carries no hue of its own. Color arrives only with a game: each game owns one spine hue triple (band, ink, accent), the way a platform owns the band on a box spine. The active tool's spine tab in the navbar continues down into the page as its banner, so tab and header read as one spine in the game's hue.\n\nDensity is that of a working instrument. Inputs sit in one compact row, the answer sits directly under them, and detail lives in a hairline-ruled table with tabular figures right-aligned in strict columns. No card inflation, no decorative gradients, no illustration. The game's accent is functional: it marks the answer (fewest runs, XP to go) and the active state, never ornament.\n\nAdding a game means adding a hue to the registry, never new chrome.",
+    "keyCharacteristics": [
+      "Neutral charcoal shell; all chroma comes from per-game hue triples.",
+      "Navbar is a row of spines; the active spine extends into the page as a banner.",
+      "Barlow for UI and data; Barlow Condensed semibold uppercase only for spine voice.",
+      "Tabular figures everywhere; numbers right-aligned in ruled columns.",
+      "Flat surfaces separated by 1px hairlines, not shadows."
+    ],
+    "rules": [
+      {
+        "name": "The Spine Hue Rule",
+        "section": "colors",
+        "body": "Each game owns exactly one hue triple `{ band, ink, accent }`, declared on its entry in `src/tools/registry.ts` and applied as `--band`, `--band-ink`, `--accent` on that game's spine, shelf card and tool route. The shell never hard-codes a game color. A new game adds a registry hue; it never adds new chrome, layouts or component variants."
+      },
+      {
+        "name": "The Accent Marks the Answer Rule",
+        "section": "colors",
+        "body": "Inside a tool, the game accent is reserved for the result the player came for (fewest runs, remaining XP, best cells) and for active/selected state. It is never a background wash or decoration; the strongest tint allowed is an 18% mix behind a best cell."
+      },
+      {
+        "name": "The Neutral Shell Rule",
+        "section": "colors",
+        "body": "Charcoal, panel and hairline carry the shell. Warn amber and focus blue are the only non-game hues, and each has one job."
+      },
+      {
+        "name": "The Spine Voice Rule",
+        "section": "typography",
+        "body": "Barlow Condensed uppercase is reserved for spine voice: the wordmark, spine and banner titles, shelf titles and bands, and multiplier labels. Body copy, labels, and data never use it."
+      },
+      {
+        "name": "The Tabular Rule",
+        "section": "typography",
+        "body": "Every number is tabular and, in tables, right-aligned in its own column."
+      },
+      {
+        "name": "The Hairline Rule",
+        "section": "elevation",
+        "body": "Separate with a 1px hairline or a tonal step, never a shadow. Hover raises tone (panel to panel-raised, or border to accent), not position."
+      }
+    ],
+    "dos": [
+      "**Do** give every new game a `{ band, ink, accent }` triple in `src/tools/registry.ts` and let `--band`, `--band-ink`, `--accent` style its spine, shelf card and banner.",
+      "**Do** check each new hue triple for AA contrast: ink on band, accent on band, and accent on panel.",
+      "**Do** keep the accent on the answer and on selected state only.",
+      "**Do** separate regions with 1px hairlines and tonal steps.",
+      "**Do** set every number in tabular figures and right-align numeric columns.",
+      "**Do** use inline SVG for icons (star, check, sort chevron), sized 0.625 to 0.75rem and colored by currentColor or the accent.",
+      "**Do** keep transitions to color, background, border and opacity at 150 to 180ms on `cubic-bezier(0.16, 1, 0.3, 1)`, zeroed under reduced motion."
+    ],
+    "donts": [
+      "**Don't** add per-game chrome, layouts or component variants; a new game is a new hue, nothing more.",
+      "**Don't** hard-code a game's color in the shell or in shared components.",
+      "**Don't** use drop shadows for depth.",
+      "**Don't** set body copy, labels or data in Barlow Condensed.",
+      "**Don't** wrap sections in cards to separate them; the table and strip are the only bordered panels on a tool page."
+    ]
+  }
+}

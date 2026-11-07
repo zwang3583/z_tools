@@ -12,7 +12,7 @@
 
   --band: #262b34;
   --band-ink: #eceef2;
-  --accent: #c8aa6e;
+  --accent: #a9b0bc;
 
   --font: 'Barlow', system-ui, sans-serif;
   --font-spine: 'Barlow Condensed', 'Barlow', system-ui, sans-serif;
@@ -295,7 +295,7 @@ h2 {
   overflow: hidden;
   text-decoration: none;
   background: var(--panel);
-  transition: border-color 180ms var(--ease), transform 180ms var(--ease);
+  transition: border-color 180ms var(--ease);
 }
 
 .shelf-item:hover {
