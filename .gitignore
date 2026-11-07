@@ -5,3 +5,6 @@ dist
 .claude/settings.local.json
 .claude/skills/impeccable/scripts/bin/
 .impeccable/review/
+.verify/
+verify-artifacts/
+*.tsbuildinfo

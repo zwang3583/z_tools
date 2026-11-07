@@ -70,7 +70,7 @@ export default function LorXpPage() {
   const progress = normalizeProgress(toInt(levelRaw, 1), toInt(xpRaw, 0))
   const target = Math.min(MAX_LEVEL, Math.max(1, toInt(targetRaw, MAX_LEVEL)))
   const cap = xpToNext(progress.level)
-  const xpClamped = digits(xpRaw) !== '' && toInt(xpRaw, 0) !== progress.xpIntoLevel
+  const xpClamped = cap > 0 && digits(xpRaw) !== '' && toInt(xpRaw, 0) !== progress.xpIntoLevel
   const levelClamped = digits(levelRaw) !== '' && toInt(levelRaw, 1) !== progress.level
 
   const pool = useMemo(
@@ -128,7 +128,7 @@ export default function LorXpPage() {
               type="text"
               inputMode="numeric"
               autoComplete="off"
-              value={xpRaw}
+              value={cap === 0 ? '0' : xpRaw}
               disabled={cap === 0}
               onChange={(e) => {
                 setXpRaw(e.target.value)
