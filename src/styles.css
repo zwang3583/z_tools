@@ -356,7 +356,7 @@ h2 {
 
 .inputs {
   display: grid;
-  grid-template-columns: minmax(0, 18rem) minmax(0, 10rem) 1fr;
+  grid-template-columns: minmax(0, 18rem) minmax(0, 10rem) minmax(0, 11rem) 1fr;
   gap: var(--space-5);
   align-items: start;
   padding-bottom: var(--space-6);
@@ -402,6 +402,24 @@ h2 {
 .field input:disabled {
   color: var(--text-3);
   cursor: not-allowed;
+}
+
+.suffixed {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.suffixed input {
+  padding-right: 2.25rem;
+}
+
+.suffix {
+  position: absolute;
+  right: var(--space-3);
+  color: var(--text-3);
+  font-size: var(--step-1);
+  pointer-events: none;
 }
 
 .hint {
@@ -734,7 +752,7 @@ h2 {
 
 @media (max-width: 60rem) {
   .inputs {
-    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr);
   }
 
   .totals {
@@ -763,6 +781,14 @@ h2 {
 
   .banner-inner {
     padding-block: var(--space-3);
+  }
+
+  .inputs {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .inputs .field:first-of-type {
+    grid-column: 1 / -1;
   }
 
   .banner-title {

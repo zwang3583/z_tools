@@ -32,7 +32,7 @@ Correctness first: game data is sourced from the community wiki with a reproduci
 ## Capabilities and Constraints
 
 - Navbar listing every utility; each utility is one route.
-- LoR XP calculator: current total EXP (level and progress derived from it), target level (default max, 50), runs needed per adventure at each multiplier, with the fewest-run choice surfaced.
+- LoR XP calculator: current total EXP (level and progress derived from it), target level (default max, 50), gemstone EXP bonus percent (default 0%; applied multiplicatively with the XP multiplier, an inferred stacking rule), runs needed per adventure at each multiplier, with the fewest-run choice surfaced.
 - Adventure XP values must match the LoR wiki (wiki.leagueoflegends.com) at sync time.
 - *(inferred)* No accounts, no backend, no tracking.
 

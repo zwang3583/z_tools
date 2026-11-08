@@ -30,6 +30,6 @@ Each feature file starts with an H1 and one paragraph on the user-visible behavi
 ## Features
 
 - [Tool navigation](./tool-navigation.md) covers the navbar spine, the home shelf, deep links, and unknown routes.
-- [LoR progress input](./lor-progress-input.md) covers total EXP and target entry, the derived level, capping, formatting, and URL persistence.
+- [LoR progress input](./lor-progress-input.md) covers total EXP, target and gemstone bonus entry, the derived level, capping, formatting, and URL persistence.
 - [LoR fewest runs](./lor-fewest-runs.md) covers the per-multiplier answer strip, ties, and the at-target and max-level states.
 - [LoR adventure table](./lor-adventure-table.md) covers run counts, gold best cells, sorting, campaign and difficulty filters, the empty state, and phone layout.

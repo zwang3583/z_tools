@@ -47,11 +47,19 @@ function perMultiplier<T>(f: (m: Multiplier) => T): Record<Multiplier, T> {
   return Object.fromEntries(MULTIPLIERS.map((m) => [m, f(m)])) as Record<Multiplier, T>
 }
 
-export function plan(totalExp: number, targetLevel: number, adventures: Adventure[]): Plan {
+export function clampBonus(bonusPct: number): number {
+  return Number.isFinite(bonusPct) ? Math.max(0, Math.trunc(bonusPct)) : 0
+}
+
+export function xpPerRun(baseXp: number, multiplier: number, bonusPct = 0): number {
+  return Math.floor((baseXp * (100 + clampBonus(bonusPct)) * multiplier) / 100)
+}
+
+export function plan(totalExp: number, targetLevel: number, adventures: Adventure[], bonusPct = 0): Plan {
   const remaining = xpRemaining(totalExp, targetLevel)
   const rows = adventures.map((adventure) => ({
     adventure,
-    runs: perMultiplier((m) => runsNeeded(remaining, adventure.xp * m)),
+    runs: perMultiplier((m) => runsNeeded(remaining, xpPerRun(adventure.xp, m, bonusPct))),
   }))
   const best = perMultiplier((m) => {
     if (remaining === 0) return { runs: 0, adventureIds: [] }

@@ -26,7 +26,7 @@ $V launch
 
 This builds the current working tree with `tsc -b` and `vite build` into `.verify/runs/$VERIFY_RUN/dist`. It starts `vite preview` on a free port and headless Chrome with its own profile and DevTools port, then opens `/`. Ready means the line `READY http://127.0.0.1:<port> ...`. Before printing it, launch has already confirmed that the deep link `/lor/xp` serves the app shell and that Chrome's DevTools answers. A type error fails the launch, which is a real finding. Report it and do not route around it.
 
-The app has no backend, database, auth, or seed data. All state lives in the URL query (`exp`, `target`) and in component state (filters, sort), and a fresh page load resets filters and sort.
+The app has no backend, database, auth, or seed data. All state lives in the URL query (`exp`, `target`, `bonus`) and in component state (filters, sort), and a fresh page load resets filters and sort.
 
 Launch refuses if the run name is already live. Run cleanup first or pick another name.
 
@@ -63,7 +63,7 @@ Commands act on the single page in this run's Chrome. Each one reconnects, so th
 
 Stable handles in this app:
 
-- **Fields.** The labels are `Current EXP` and `Target level`.
+- **Fields.** The labels are `Current EXP`, `Target level` and `Gemstone EXP bonus`.
 - **Buttons.** The campaign chips are buttons named by campaign, e.g. `World Adventures` or `Nightmare Adventures`, and expose `aria-pressed`. The sort buttons are `Adventure`, `Stars` and `XP / run`.
 - **Links.** The nav spine link is named `Legends of Runeterra Champion XP planner`, and the home link is `z-tools home`.
 
@@ -77,7 +77,7 @@ Proof standards:
 
 - **Drive the user path.** Type into fields, click chips, and load URLs a user could load. Do not call component internals or set React state.
 - **Capture both sides.** Record the action and the resulting state: a snapshot before and after, or the command output plus a snapshot.
-- **Check the numbers.** For a numeric claim, recompute it independently from `src/tools/lor-xp/data/*.json` and compare it with the snapshot. Do not compare the UI with `model.ts`, because that is the code under test. Total XP to reach level L is the sum of `levels.json` `xpToNext[0..L-2]`, and the input is that total. Runs are `ceil(remaining / (adventure.xp × multiplier))`.
+- **Check the numbers.** For a numeric claim, recompute it independently from `src/tools/lor-xp/data/*.json` and compare it with the snapshot. Do not compare the UI with `model.ts`, because that is the code under test. Total XP to reach level L is the sum of `levels.json` `xpToNext[0..L-2]`, and the input is that total. Runs are `ceil(remaining / floor(adventure.xp × (100 + bonus) × multiplier / 100))`, with `bonus` the gemstone percent.
 - **Verify side effects.** The only one is the URL query, which is read back from `snapshot.url`.
 - **Cover phone width.** For layout claims, take a screenshot at 390 wide and check `horizontalOverflow: false`.
 

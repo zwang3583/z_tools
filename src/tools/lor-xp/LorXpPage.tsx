@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { ADVENTURES, MAX_LEVEL, MAX_TOTAL_XP, clampExp, levelAt, plan, xpToNext } from './model'
+import { ADVENTURES, MAX_LEVEL, MAX_TOTAL_XP, clampBonus, clampExp, levelAt, plan, xpPerRun, xpToNext } from './model'
 import { CAMPAIGNS, MULTIPLIERS, type Adventure, type CampaignId, type Multiplier } from './types'
 
 type SortKey = 'xp' | 'stars' | 'name'
@@ -57,18 +57,20 @@ export default function LorXpPage() {
   const [params, setParams] = useSearchParams()
   const [expRaw, setExpRaw] = useState(() => fmt.format(toInt(params.get('exp') ?? '', 0)))
   const [targetRaw, setTargetRaw] = useState(params.get('target') ?? String(MAX_LEVEL))
+  const [bonusRaw, setBonusRaw] = useState(params.get('bonus') ?? '0')
   const [off, setOff] = useState<Set<CampaignId>>(new Set())
   const [maxStars, setMaxStars] = useState<number | null>(null)
   const [sort, setSort] = useState<Sort>({ key: 'xp', dir: 'desc' })
 
-  const sync = (next: { exp?: string; target?: string }) => {
-    const merged = { exp: expRaw, target: targetRaw, ...next }
-    setParams({ exp: digits(merged.exp), target: digits(merged.target) }, { replace: true })
+  const sync = (next: { exp?: string; target?: string; bonus?: string }) => {
+    const merged = { exp: expRaw, target: targetRaw, bonus: bonusRaw, ...next }
+    setParams({ exp: digits(merged.exp), target: digits(merged.target), bonus: digits(merged.bonus) }, { replace: true })
   }
 
   const exp = clampExp(toInt(expRaw, 0))
   const progress = levelAt(exp)
   const target = Math.min(MAX_LEVEL, Math.max(1, toInt(targetRaw, MAX_LEVEL)))
+  const bonus = clampBonus(toInt(bonusRaw, 0))
   const cap = xpToNext(progress.level)
   const expClamped = digits(expRaw) !== '' && toInt(expRaw, 0) !== exp
 
@@ -76,7 +78,7 @@ export default function LorXpPage() {
     () => ADVENTURES.filter((a) => !off.has(a.campaign) && (maxStars === null || a.stars <= maxStars)),
     [off, maxStars],
   )
-  const result = useMemo(() => plan(exp, target, pool), [exp, target, pool])
+  const result = useMemo(() => plan(exp, target, pool, bonus), [exp, target, pool, bonus])
   const rows = useMemo(() => [...result.rows].sort((a, b) => compare(sort)(a.adventure, b.adventure)), [result, sort])
   const byId = useMemo(() => new Map(ADVENTURES.map((a) => [a.id, a])), [])
   const done = result.xpRemaining === 0
@@ -138,6 +140,29 @@ export default function LorXpPage() {
             onBlur={() => setTargetRaw(String(target))}
           />
           <p className="hint">{target === MAX_LEVEL ? 'Max level' : `Max is ${MAX_LEVEL}`}</p>
+        </div>
+
+        <div className="field">
+          <label htmlFor="bonus">Gemstone EXP bonus</label>
+          <div className="suffixed">
+            <input
+              id="bonus"
+              type="text"
+              inputMode="numeric"
+              autoComplete="off"
+              value={bonusRaw}
+              onChange={(e) => {
+                setBonusRaw(e.target.value)
+                sync({ bonus: e.target.value })
+              }}
+              onBlur={() => setBonusRaw(String(bonus))}
+              aria-describedby="bonus-hint"
+            />
+            <span className="suffix" aria-hidden="true">%</span>
+          </div>
+          <p id="bonus-hint" className="hint">
+            {bonus === 0 ? 'From gemstones. 100% doubles EXP.' : `Each run earns ${fmt.format((100 + bonus) / 100)}× its base EXP.`}
+          </p>
         </div>
 
         <dl className="totals">
@@ -266,7 +291,8 @@ export default function LorXpPage() {
                       <Star />
                     </td>
                     <td className="num">
-                      {fmt.format(a.xp)}
+                      {fmt.format(xpPerRun(a.xp, 1, bonus))}
+                      {bonus > 0 && <span className="adv-route">base {fmt.format(a.xp)}</span>}
                       {a.shortPathXp !== null && (
                         <span className="adv-route">long route · short {fmt.format(a.shortPathXp)}</span>
                       )}
@@ -289,7 +315,7 @@ export default function LorXpPage() {
             Legends of Runeterra wiki
           </a>
           . Adventures with two routes use the longer route; take it to match these counts. Each run's XP is the adventure's
-          XP times the multiplier.
+          XP, raised by your gemstone bonus, times the multiplier, rounded down.
         </p>
       </section>
     </main>

@@ -7,6 +7,7 @@ import {
   levelAt,
   plan,
   runsNeeded,
+  xpPerRun,
   xpAtLevel,
   xpRemaining,
   xpToNext,
@@ -116,6 +117,23 @@ describe('plan', () => {
     const p = plan(0, 2, [])
     expect(p.rows).toEqual([])
     expect(p.best[10]).toEqual({ runs: Number.POSITIVE_INFINITY, adventureIds: [] })
+  })
+})
+
+describe('gemstone bonus', () => {
+  it('scales each run by the bonus on top of the multiplier', () => {
+    expect(xpPerRun(11970, 10)).toBe(119700)
+    expect(xpPerRun(11970, 10, 100)).toBe(239400)
+    expect(xpPerRun(305, 5, 15)).toBe(1753)
+    expect(xpPerRun(305, 5, -20)).toBe(1525)
+  })
+
+  it('lowers the run counts in a plan', () => {
+    const base = plan(51290, 31, [adventure('a', 117)])
+    const doubled = plan(51290, 31, [adventure('a', 117)], 100)
+    expect(base.rows[0]!.runs[5]).toBe(10)
+    expect(doubled.rows[0]!.runs[5]).toBe(5)
+    expect(doubled.best[5]).toEqual({ runs: 5, adventureIds: ['a'] })
   })
 })
 
