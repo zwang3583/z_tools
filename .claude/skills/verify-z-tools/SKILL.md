@@ -77,7 +77,7 @@ Proof standards:
 
 - **Drive the user path.** Type into fields, click chips, and load URLs a user could load. Do not call component internals or set React state.
 - **Capture both sides.** Record the action and the resulting state: a snapshot before and after, or the command output plus a snapshot.
-- **Check the numbers.** For a numeric claim, recompute it independently from `src/tools/lor-xp/data/*.json` and compare it with the snapshot. Do not compare the UI with `model.ts`, because that is the code under test. Total XP to reach level L is the sum of `levels.json` `xpToNext[0..L-2]`, and the input is that total. Runs are `ceil(remaining / floor(adventure.xp × (100 + bonus) × multiplier / 100))`, with `bonus` the gemstone percent.
+- **Check the numbers.** For a numeric claim, recompute it independently from `src/tools/lor-xp/data/*.json` and compare it with the snapshot. Do not compare the UI with `model.ts`, because that is the code under test. Total XP to reach level L is the sum of `levels.json` `xpToNext[0..L-2]`, and the input is that total. Runs are `ceil(remaining / floor(adventure.xp × (100 + bonus + 100 × multiplier) / 100))`, with `bonus` the gemstone percent. A run earns the base, plus the gemstone share of base, plus base times the multiplier.
 - **Verify side effects.** The only one is the URL query, which is read back from `snapshot.url`.
 - **Cover phone width.** For layout claims, take a screenshot at 390 wide and check `horizontalOverflow: false`.
 

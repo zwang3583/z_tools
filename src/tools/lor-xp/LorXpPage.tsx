@@ -161,7 +161,9 @@ export default function LorXpPage() {
             <span className="suffix" aria-hidden="true">%</span>
           </div>
           <p id="bonus-hint" className="hint">
-            {bonus === 0 ? 'From gemstones. 100% doubles EXP.' : `Each run earns ${fmt.format((100 + bonus) / 100)}× its base EXP.`}
+            {bonus === 0
+              ? 'From gemstones. 100% adds one more base EXP per run.'
+              : `Adds ${fmt.format(bonus / 100)}× base EXP to every run.`}
           </p>
         </div>
 
@@ -291,8 +293,10 @@ export default function LorXpPage() {
                       <Star />
                     </td>
                     <td className="num">
-                      {fmt.format(xpPerRun(a.xp, 1, bonus))}
-                      {bonus > 0 && <span className="adv-route">base {fmt.format(a.xp)}</span>}
+                      {fmt.format(a.xp)}
+                      {bonus > 0 && (
+                        <span className="adv-route">+{fmt.format(xpPerRun(a.xp, 0, bonus) - a.xp)} gemstone</span>
+                      )}
                       {a.shortPathXp !== null && (
                         <span className="adv-route">long route · short {fmt.format(a.shortPathXp)}</span>
                       )}
@@ -314,8 +318,8 @@ export default function LorXpPage() {
           <a href="https://wiki.leagueoflegends.com/en-us/LoR:Adventures" target="_blank" rel="noreferrer">
             Legends of Runeterra wiki
           </a>
-          . Adventures with two routes use the longer route; take it to match these counts. Each run's XP is the adventure's
-          XP, raised by your gemstone bonus, times the multiplier, rounded down.
+          . Adventures with two routes use the longer route; take it to match these counts. Each run earns the adventure's XP,
+          plus your gemstone bonus of it, plus the adventure's XP times the multiplier, rounded down.
         </p>
       </section>
     </main>

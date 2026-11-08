@@ -18,8 +18,8 @@ The strip under the inputs answers the main question. For each multiplier from 5
 
 Preconditions: baseline.
 
-- **Answer per multiplier.** Run `$V goto "/lor/xp?exp=52290&target=50"` then `$V snapshot --path lor-fewest-runs/l30.json`. `fewestRuns` lists `9 runs`, `5 runs`, `3 runs`, `3 runs`, `2 runs`, `2 runs`, all for `With Friends Like These...`. The 10×, 20×, 25× and 30× cells read `Tied with The Star Forger`. Recompute: 500,380 remaining divided by 11,970×m, rounded up, matches. The Star Forger (10,670×m) needs the same count at those four multipliers.
-- **Filters change the answer.** Run `$V click --role button --name "Nightmare Adventures"` then `$V snapshot --path lor-fewest-runs/no-nightmare.json`. Every cell now names `The Star Forger`, and 5× reads `10 runs`.
+- **Answer per multiplier.** Run `$V goto "/lor/xp?exp=52290&target=50"` then `$V snapshot --path lor-fewest-runs/l30.json`. `fewestRuns` lists `7 runs`, `4 runs`, `3 runs`, `2 runs`, `2 runs`, `2 runs`, all for `With Friends Like These...`. The 15×, 25× and 30× cells read `Tied with The Star Forger`. Recompute: 500,380 remaining divided by 11,970 × (1 + m), rounded up. For example 5× is 500,380 / 71,820 = 6.97, so 7.
+- **Filters change the answer.** Run `$V click --role button --name "Nightmare Adventures"` then `$V snapshot --path lor-fewest-runs/no-nightmare.json`. Every cell now names `The Star Forger`, with runs `8, 5, 3, 3, 2, 2`.
 - **At target.** Run `$V goto "/lor/xp?exp=176530&target=40"` then snapshot. `fewestRuns` is empty, and `emptyMessages[0]` is `Already at level 40. Raise the target level to plan more runs.`
 - **Max level.** Run `$V goto "/lor/xp?exp=552670&target=50"` then snapshot. `emptyMessages[0]` is `Level 50 is the max. This champion has nothing left to earn.`
 - **Proof.** Run `$V screenshot --path lor-fewest-runs/strip.png --top` at desktop, then `$V viewport 390 844` and `$V screenshot --path lor-fewest-runs/strip-phone.png --top`. On the phone shot, the first row of the strip is fully visible without scrolling. Finish with `$V viewport desktop`.

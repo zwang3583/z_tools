@@ -52,7 +52,7 @@ export function clampBonus(bonusPct: number): number {
 }
 
 export function xpPerRun(baseXp: number, multiplier: number, bonusPct = 0): number {
-  return Math.floor((baseXp * (100 + clampBonus(bonusPct)) * multiplier) / 100)
+  return Math.floor((baseXp * (100 + clampBonus(bonusPct) + 100 * multiplier)) / 100)
 }
 
 export function plan(totalExp: number, targetLevel: number, adventures: Adventure[], bonusPct = 0): Plan {

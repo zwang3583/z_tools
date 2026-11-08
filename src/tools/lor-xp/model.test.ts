@@ -95,14 +95,14 @@ describe('plan', () => {
   it('computes runs per multiplier from exact integer xp', () => {
     const p = plan(51290, 31, [adventure('a', 117)])
     expect(p.xpRemaining).toBe(5850)
-    expect(p.rows[0]!.runs).toEqual({ 5: 10, 10: 5, 15: 4, 20: 3, 25: 2, 30: 2 })
+    expect(p.rows[0]!.runs).toEqual({ 5: 9, 10: 5, 15: 4, 20: 3, 25: 2, 30: 2 })
   })
 
   it('reports every adventure tied for fewest runs', () => {
     const p = plan(51290, 31, [
       adventure('small', 100),
-      adventure('big', 1200),
-      adventure('alsoBig', 1170),
+      adventure('big', 1000),
+      adventure('alsoBig', 975),
     ])
     expect(p.best[5]).toEqual({ runs: 1, adventureIds: ['big', 'alsoBig'] })
   })
@@ -120,20 +120,22 @@ describe('plan', () => {
   })
 })
 
-describe('gemstone bonus', () => {
-  it('scales each run by the bonus on top of the multiplier', () => {
-    expect(xpPerRun(11970, 10)).toBe(119700)
-    expect(xpPerRun(11970, 10, 100)).toBe(239400)
-    expect(xpPerRun(305, 5, 15)).toBe(1753)
-    expect(xpPerRun(305, 5, -20)).toBe(1525)
+describe('xpPerRun', () => {
+  it('adds base, gemstone bonus, and base times the multiplier', () => {
+    expect(xpPerRun(100, 5, 100)).toBe(700)
+    expect(xpPerRun(100, 5)).toBe(600)
+    expect(xpPerRun(11970, 10, 100)).toBe(143640)
+    expect(xpPerRun(305, 5, 15)).toBe(1875)
+    expect(xpPerRun(101, 5, 15)).toBe(621)
+    expect(xpPerRun(305, 5, -20)).toBe(1830)
   })
 
   it('lowers the run counts in a plan', () => {
     const base = plan(51290, 31, [adventure('a', 117)])
-    const doubled = plan(51290, 31, [adventure('a', 117)], 100)
-    expect(base.rows[0]!.runs[5]).toBe(10)
-    expect(doubled.rows[0]!.runs[5]).toBe(5)
-    expect(doubled.best[5]).toEqual({ runs: 5, adventureIds: ['a'] })
+    const boosted = plan(51290, 31, [adventure('a', 117)], 100)
+    expect(base.rows[0]!.runs[5]).toBe(9)
+    expect(boosted.rows[0]!.runs[5]).toBe(8)
+    expect(boosted.best[5]).toEqual({ runs: 8, adventureIds: ['a'] })
   })
 })
 
