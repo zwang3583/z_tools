@@ -356,7 +356,7 @@ h2 {
 
 .inputs {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 12rem)) 1fr;
+  grid-template-columns: minmax(0, 18rem) minmax(0, 10rem) 1fr;
   gap: var(--space-5);
   align-items: start;
   padding-bottom: var(--space-6);
@@ -402,23 +402,6 @@ h2 {
 .field input:disabled {
   color: var(--text-3);
   cursor: not-allowed;
-}
-
-.xp-input {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.xp-input input {
-  padding-right: 6.5rem;
-}
-
-.xp-cap {
-  position: absolute;
-  right: var(--space-3);
-  color: var(--text-3);
-  pointer-events: none;
 }
 
 .hint {
@@ -751,7 +734,7 @@ h2 {
 
 @media (max-width: 60rem) {
   .inputs {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
   }
 
   .totals {
@@ -829,22 +812,6 @@ h2 {
     padding: var(--space-3);
   }
 
-  .inputs {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .inputs .field:nth-of-type(2) {
-    grid-column: 1 / -1;
-    order: 2;
-  }
-
-  .inputs .field:nth-of-type(3) {
-    order: 1;
-  }
-
-  .totals {
-    order: 3;
-  }
 
   .best-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));

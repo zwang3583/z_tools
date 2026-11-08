@@ -22,17 +22,17 @@ z-tools hosts a growing set of small video game utilities. Each utility is its o
 
 ## Positioning
 
-Correctness first: game data is sourced from the community wiki with a reproducible sync script, and calculations accept the exact state the player sees in game (for LoR, a level plus partial XP progress), not a rounded approximation.
+Correctness first: game data is sourced from the community wiki with a reproducible sync script, and calculations accept the exact state the player sees in game (for LoR, the champion's total EXP), not a rounded approximation.
 
 ## Operating Context
 
-- LoR Path of Champions shows a champion's level and XP progress toward the next level. Adventures award fixed champion XP on completion, multiplied by an XP bonus the owner names as 5×, 10×, 15×, 20×, 25×, or 30×.
+- LoR Path of Champions shows a champion's total EXP; the owner confirmed this is the number players read in game. Adventures award fixed champion XP on completion, multiplied by an XP bonus the owner names as 5×, 10×, 15×, 20×, 25×, or 30×.
 - Some adventures award different XP by route length; the higher value is reachable by taking the longer path.
 
 ## Capabilities and Constraints
 
 - Navbar listing every utility; each utility is one route.
-- LoR XP calculator: current level + XP into that level, target level (default max, 50), runs needed per adventure at each multiplier, with the fewest-run choice surfaced.
+- LoR XP calculator: current total EXP (level and progress derived from it), target level (default max, 50), runs needed per adventure at each multiplier, with the fewest-run choice surfaced.
 - Adventure XP values must match the LoR wiki (wiki.leagueoflegends.com) at sync time.
 - *(inferred)* No accounts, no backend, no tracking.
 

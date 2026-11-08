@@ -4,7 +4,7 @@ Small utilities for video games. Each tool is one route, listed in the navbar fr
 
 ## Tools
 
-- `/lor/xp`: Legends of Runeterra champion XP planner. Enter a champion's level and XP into that level to see the fewest Path of Champions adventure runs to a target level at 5× to 30× XP.
+- `/lor/xp`: Legends of Runeterra champion XP planner. Enter a champion's total EXP to see the fewest Path of Champions adventure runs to a target level at 5× to 30× XP.
 
 ## Develop
 

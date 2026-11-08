@@ -17,19 +17,25 @@ export function xpToNext(level: number): number {
   return XP_TO_NEXT[clampLevel(level) - 1] ?? 0
 }
 
-export function totalXp(p: Progress): number {
-  return XP_AT_LEVEL[clampLevel(p.level) - 1]! + p.xpIntoLevel
+export function xpAtLevel(level: number): number {
+  return XP_AT_LEVEL[clampLevel(level) - 1]!
 }
 
-export function normalizeProgress(level: number, xpIntoLevel: number): Progress {
-  const l = clampLevel(level)
-  const cap = Math.max(0, xpToNext(l) - 1)
-  const xp = Number.isFinite(xpIntoLevel) ? Math.min(cap, Math.max(0, Math.trunc(xpIntoLevel))) : 0
-  return { level: l, xpIntoLevel: xp }
+export const MAX_TOTAL_XP = xpAtLevel(MAX_LEVEL)
+
+export function clampExp(totalExp: number): number {
+  return Number.isFinite(totalExp) ? Math.min(MAX_TOTAL_XP, Math.max(0, Math.trunc(totalExp))) : 0
 }
 
-export function xpRemaining(from: Progress, targetLevel: number): number {
-  return Math.max(0, totalXp({ level: targetLevel, xpIntoLevel: 0 }) - totalXp(from))
+export function levelAt(totalExp: number): Progress {
+  const exp = clampExp(totalExp)
+  let level = 1
+  while (level < MAX_LEVEL && xpAtLevel(level + 1) <= exp) level++
+  return { level, xpIntoLevel: exp - xpAtLevel(level) }
+}
+
+export function xpRemaining(totalExp: number, targetLevel: number): number {
+  return Math.max(0, xpAtLevel(targetLevel) - clampExp(totalExp))
 }
 
 export function runsNeeded(remaining: number, xpPerRun: number): number {
@@ -41,8 +47,8 @@ function perMultiplier<T>(f: (m: Multiplier) => T): Record<Multiplier, T> {
   return Object.fromEntries(MULTIPLIERS.map((m) => [m, f(m)])) as Record<Multiplier, T>
 }
 
-export function plan(from: Progress, targetLevel: number, adventures: Adventure[]): Plan {
-  const remaining = xpRemaining(from, targetLevel)
+export function plan(totalExp: number, targetLevel: number, adventures: Adventure[]): Plan {
+  const remaining = xpRemaining(totalExp, targetLevel)
   const rows = adventures.map((adventure) => ({
     adventure,
     runs: perMultiplier((m) => runsNeeded(remaining, adventure.xp * m)),

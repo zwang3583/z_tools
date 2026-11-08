@@ -14,7 +14,7 @@ Every tool is reachable from a navbar spine and from the home shelf. Each tool's
 - Click the `z-tools home` wordmark, or load `/`.
 - Click the tool's spine in the navbar.
 - Click a shelf card on the home page.
-- Paste a tool URL, e.g. `/lor/xp?level=30&xp=1000&target=50`.
+- Paste a tool URL, e.g. `/lor/xp?exp=52290&target=50`.
 
 ## Driving it with control.mjs
 
@@ -24,7 +24,7 @@ Preconditions: baseline.
 - **Shelf card opens the tool.** Run `$V click --role link --name "Legends of Runeterra Champion XP planner Fewest Path of Champions runs to level a champion, from your exact XP."`. The card's name includes its summary. The output ends `-> /lor/xp`.
 - **Spine marks the current tool.** Run `$V snapshot --path tool-navigation/tool.json`. `nav[0].current` is `true`, and `banner` is `{ "title": "Champion XP planner", "game": "Legends of Runeterra" }`.
 - **Wordmark returns home.** Run `$V click --role link --name "z-tools home"`. The output ends `-> /`, and a new snapshot shows `nav[0].current` as `false`.
-- **Deep link.** Run `$V goto "/lor/xp?level=30&xp=1000&target=50"`. The output `at /lor/xp?level=30&xp=1000&target=50` and a snapshot with input values `30`, `1000`, `50` prove the route and query survived a direct load.
+- **Deep link.** Run `$V goto "/lor/xp?exp=52290&target=50"`. The output `at /lor/xp?exp=52290&target=50` and a snapshot with input values `52290` and `50` prove the route and query survived a direct load.
 - **Unknown route.** Run `$V goto /does-not-exist`. The output is `at /`.
 - **Proof.** Run `$V screenshot --path tool-navigation/tool.png --top` on `/lor/xp`. The tab and the navy banner read as one continuous band.
 

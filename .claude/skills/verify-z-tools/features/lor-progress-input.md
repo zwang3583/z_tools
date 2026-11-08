@@ -1,34 +1,33 @@
 # LoR progress input
 
-The player enters exactly what the game shows: current level, XP earned toward the next level, and a target level that defaults to 50. Out-of-range input is capped with a visible warning instead of being rejected. The XP total and the URL update as the player types.
+The player types the champion's total EXP exactly as the game shows it, plus a target level that defaults to 50. The page works out the current level and the progress toward the next one. Totals above the max are capped with a visible warning, and the URL updates as the player types.
 
 ## Sub-features
 
-- `input-level` sets the current level from 1 to 50.
-- `input-xp` sets the XP into the current level, shows `/ <xp to next level>`, accepts commas, and reformats on blur.
+- `input-exp` sets the champion's total EXP, accepts commas, and reformats on blur.
+- `input-level-derived` shows `Level N, X / Y toward N+1.` under the field and `Current level` in the readout.
 - `input-target` sets the target level, defaulting to 50.
-- `input-clamp` caps out-of-range values, shows an amber hint saying what was used, and restores the clamped value on blur.
-- `input-url` mirrors the inputs into `?level=&xp=&target=` so a reload or shared link restores them.
-- `input-maxlevel` disables the XP field at level 50 and shows `/ max`.
+- `input-clamp` caps totals above 552,670 with an amber hint and restores the capped value on blur.
+- `input-url` mirrors the inputs into `?exp=&target=` so a reload or shared link restores them.
 
 ## How to get to it (user POV)
 
-- Type into `Current level`, `XP into this level`, and `Target level` on `/lor/xp`.
-- Load `/lor/xp?level=<n>&xp=<n>&target=<n>`.
+- Type into `Current EXP` and `Target level` on `/lor/xp`.
+- Load `/lor/xp?exp=<n>&target=<n>`.
 
 ## Driving it with control.mjs
 
 Preconditions: baseline, then `$V goto /lor/xp`.
 
-- **Type progress.** Run `$V fill --label "Current level" --value 38` and `$V fill --label "XP into this level" --value 7,500 --commit`. The second command reports that the field now shows `"7,500"`.
-- **Totals and URL.** Run `$V snapshot --path lor-progress-input/typed.json`. `url` is `/lor/xp?level=38&xp=7500&target=50`, `XP to go` is `408,510`, `Earned so far` is `144,160`, and the XP field's `cap` is `/ 18,770`. Recompute: the sum of `xpToNext[0..36]` is 136,660, plus 7,500 is 144,160, and 552,670 minus that is 408,510.
-- **Clamp over cap.** Run `$V fill --label "XP into this level" --value 99999`, then snapshot. The XP field's `warn` is `true` and its hint says `Level 38 holds at most 18,769 XP; using that.` Run `$V fill --label "XP into this level" --value 99999 --commit` and the field shows `18,769`.
-- **Clamp level.** Run `$V fill --label "Current level" --value 70 --commit`. The field shows `50`, and the XP field is `disabled` with value `0`, cap `/ max`, `warn: false`, and hint `Max level reached.` Any XP typed earlier must not linger.
-- **Reload keeps state.** Run `$V goto "/lor/xp?level=12&xp=500&target=40"`, then snapshot. The input values are `12`, `500`, `40`.
+- **Type a total.** Run `$V fill --label "Current EXP" --value 144,160 --commit`. The command reports that the field now shows `"144,160"`.
+- **Derived level, totals, URL.** Run `$V snapshot --path lor-progress-input/typed.json`. `url` is `/lor/xp?exp=144160&target=50`. The `Current EXP` hint is `Level 38, 7,500 / 18,770 toward 39.` The totals are `XP to go` `408,510` and `Current level` `38`. Recompute: the sum of `xpToNext[0..36]` is 136,660, so 144,160 is 7,500 into level 38, and 552,670 minus 144,160 is 408,510.
+- **Level boundary.** Run `$V fill --label "Current EXP" --value 51290`, then snapshot. The hint reads `Level 30, 0 / 5,850 toward 31.` At `51289` it reads `Level 29, 4,369 / 4,370 toward 30.`
+- **Clamp over max.** Run `$V fill --label "Current EXP" --value 9999999`, then snapshot. The hint has `warn: true` and reads `The most a champion can hold is 552,670; using that.` With `--commit` the field shows `552,670`, and the strip shows the max-level message.
+- **Reload keeps state.** Run `$V goto "/lor/xp?exp=5000&target=40"`, then snapshot. The input values are `5000` and `40`.
 - **Proof.** Run `$V screenshot --path lor-progress-input/clamped.png --top` while the amber hint is showing.
 
 ## Gotchas
 
-- The level fields are `type=number`. Typing `7,500` into them yields an empty field, so commas belong only in the XP field.
-- A clamped value appears in the field only after blur. Use `--commit` when asserting the field's text, and leave it off when asserting the warning hint.
-- The URL stores the raw digits typed, not the clamped value. `?xp=99999` stays in the URL while the page uses the cap. That is current behavior, not a proof failure.
+- `Target level` is `type=number`. Commas belong only in `Current EXP`.
+- A capped value appears in the field only after blur. Use `--commit` when asserting the field's text, and leave it off when asserting the warning hint.
+- The URL stores the raw digits typed, not the capped value. `?exp=9999999` stays in the URL while the page uses 552,670. That is current behavior, not a proof failure.

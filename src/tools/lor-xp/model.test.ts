@@ -2,10 +2,12 @@ import { describe, expect, it } from 'vitest'
 import {
   ADVENTURES,
   MAX_LEVEL,
-  normalizeProgress,
+  MAX_TOTAL_XP,
+  clampExp,
+  levelAt,
   plan,
   runsNeeded,
-  totalXp,
+  xpAtLevel,
   xpRemaining,
   xpToNext,
 } from './model'
@@ -34,36 +36,48 @@ describe('level table', () => {
     expect(xpToNext(30)).toBe(5850)
     expect(xpToNext(49)).toBe(54800)
     expect(xpToNext(MAX_LEVEL)).toBe(0)
-    expect(totalXp({ level: 30, xpIntoLevel: 0 })).toBe(51290)
-    expect(totalXp({ level: 50, xpIntoLevel: 0 })).toBe(552670)
+    expect(xpAtLevel(30)).toBe(51290)
+    expect(xpAtLevel(50)).toBe(552670)
+    expect(MAX_TOTAL_XP).toBe(552670)
   })
 })
 
 describe('xpRemaining', () => {
   it('needs the whole table from a fresh champion', () => {
-    expect(xpRemaining({ level: 1, xpIntoLevel: 0 }, 50)).toBe(552670)
+    expect(xpRemaining(0, 50)).toBe(552670)
   })
 
-  it('subtracts partial progress', () => {
-    expect(xpRemaining({ level: 30, xpIntoLevel: 1000 }, 50)).toBe(552670 - 51290 - 1000)
+  it('subtracts the champion total', () => {
+    expect(xpRemaining(52290, 50)).toBe(552670 - 52290)
   })
 
-  it('is 1 when one xp short of the next level', () => {
-    expect(xpRemaining({ level: 30, xpIntoLevel: 5849 }, 31)).toBe(1)
+  it('is 1 when one xp short of the target', () => {
+    expect(xpRemaining(51290 + 5849, 31)).toBe(1)
   })
 
   it('is 0 when the target is at or below the current level', () => {
-    expect(xpRemaining({ level: 30, xpIntoLevel: 100 }, 30)).toBe(0)
-    expect(xpRemaining({ level: 30, xpIntoLevel: 100 }, 12)).toBe(0)
+    expect(xpRemaining(51390, 30)).toBe(0)
+    expect(xpRemaining(51390, 12)).toBe(0)
   })
 })
 
-describe('normalizeProgress', () => {
-  it('clamps level and xp into the valid range', () => {
-    expect(normalizeProgress(0, -5)).toEqual({ level: 1, xpIntoLevel: 0 })
-    expect(normalizeProgress(30.7, 99999)).toEqual({ level: 30, xpIntoLevel: 5849 })
-    expect(normalizeProgress(80, 10)).toEqual({ level: 50, xpIntoLevel: 0 })
-    expect(normalizeProgress(NaN, NaN)).toEqual({ level: 1, xpIntoLevel: 0 })
+describe('levelAt', () => {
+  it('derives the level and progress the game would show', () => {
+    expect(levelAt(0)).toEqual({ level: 1, xpIntoLevel: 0 })
+    expect(levelAt(49)).toEqual({ level: 1, xpIntoLevel: 49 })
+    expect(levelAt(50)).toEqual({ level: 2, xpIntoLevel: 0 })
+    expect(levelAt(52290)).toEqual({ level: 30, xpIntoLevel: 1000 })
+    expect(levelAt(552669)).toEqual({ level: 49, xpIntoLevel: 54799 })
+    expect(levelAt(552670)).toEqual({ level: 50, xpIntoLevel: 0 })
+  })
+})
+
+describe('clampExp', () => {
+  it('keeps totals between 0 and the max-level total', () => {
+    expect(clampExp(-5)).toBe(0)
+    expect(clampExp(1234.9)).toBe(1234)
+    expect(clampExp(9999999)).toBe(552670)
+    expect(clampExp(NaN)).toBe(0)
   })
 })
 
@@ -78,13 +92,13 @@ describe('runsNeeded', () => {
 
 describe('plan', () => {
   it('computes runs per multiplier from exact integer xp', () => {
-    const p = plan({ level: 30, xpIntoLevel: 0 }, 31, [adventure('a', 117)])
+    const p = plan(51290, 31, [adventure('a', 117)])
     expect(p.xpRemaining).toBe(5850)
     expect(p.rows[0]!.runs).toEqual({ 5: 10, 10: 5, 15: 4, 20: 3, 25: 2, 30: 2 })
   })
 
   it('reports every adventure tied for fewest runs', () => {
-    const p = plan({ level: 30, xpIntoLevel: 0 }, 31, [
+    const p = plan(51290, 31, [
       adventure('small', 100),
       adventure('big', 1200),
       adventure('alsoBig', 1170),
@@ -93,13 +107,13 @@ describe('plan', () => {
   })
 
   it('has zero runs everywhere when the target is reached', () => {
-    const p = plan({ level: 50, xpIntoLevel: 0 }, 50, ADVENTURES)
+    const p = plan(552670, 50, ADVENTURES)
     for (const m of MULTIPLIERS) expect(p.best[m]).toEqual({ runs: 0, adventureIds: [] })
     expect(p.rows.every((r) => MULTIPLIERS.every((m) => r.runs[m] === 0))).toBe(true)
   })
 
   it('reports infinite runs when no adventures are given and xp remains', () => {
-    const p = plan({ level: 1, xpIntoLevel: 0 }, 2, [])
+    const p = plan(0, 2, [])
     expect(p.rows).toEqual([])
     expect(p.best[10]).toEqual({ runs: Number.POSITIVE_INFINITY, adventureIds: [] })
   })

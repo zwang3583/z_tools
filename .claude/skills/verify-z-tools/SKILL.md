@@ -26,7 +26,7 @@ $V launch
 
 This builds the current working tree with `tsc -b` and `vite build` into `.verify/runs/$VERIFY_RUN/dist`. It starts `vite preview` on a free port and headless Chrome with its own profile and DevTools port, then opens `/`. Ready means the line `READY http://127.0.0.1:<port> ...`. Before printing it, launch has already confirmed that the deep link `/lor/xp` serves the app shell and that Chrome's DevTools answers. A type error fails the launch, which is a real finding. Report it and do not route around it.
 
-The app has no backend, database, auth, or seed data. All state lives in the URL query (`level`, `xp`, `target`) and in component state (filters, sort), and a fresh page load resets filters and sort.
+The app has no backend, database, auth, or seed data. All state lives in the URL query (`exp`, `target`) and in component state (filters, sort), and a fresh page load resets filters and sort.
 
 Launch refuses if the run name is already live. Run cleanup first or pick another name.
 
@@ -52,9 +52,9 @@ Commands act on the single page in this run's Chrome. Each one reconnects, so th
 
 | Command | What the user does | Notes |
 | --- | --- | --- |
-| `$V goto <path>` | Types a URL or follows a link | `<path>` may include a query, e.g. `/lor/xp?level=30&xp=1000&target=50`. |
+| `$V goto <path>` | Types a URL or follows a link | `<path>` may include a query, e.g. `/lor/xp?exp=52290&target=50`. |
 | `$V click --role <button\|link\|row> --name "<accessible name>" [--nth N]` | Clicks with the mouse | Real mouse events at the element's center after scrolling it into view. Fails if the name matches 0 visible elements, or more than 1 without `--nth`. |
-| `$V fill --label "<label text>" --value "<text>" [--commit]` | Clicks a field, selects its contents, types | Real typing via `Input.insertText`. `--commit` presses Tab afterwards, which fires blur. Blur reformats the XP field and restores clamped values. `--value ""` clears the field. |
+| `$V fill --label "<label text>" --value "<text>" [--commit]` | Clicks a field, selects its contents, types | Real typing via `Input.insertText`. `--commit` presses Tab afterwards, which fires blur. Blur reformats `Current EXP` and restores capped values. `--value ""` clears the field. |
 | `$V select --label Difficulty --option "Up to 5 stars"` | Picks a dropdown option | The one non-keyboard path: it sets the native `<select>` value and fires `change`, exactly what the browser does when an option is chosen. |
 | `$V viewport 390 844` / `$V viewport desktop` | Uses a phone or a desktop | Applies to every later command in this run. Desktop is 1440x900. |
 | `$V snapshot [--path rel.json] [--print]` | Reads the screen | Structured JSON of what is rendered: URL, nav, inputs (value, hint, warning), totals, the fewest-runs strip, empty messages, campaign chips, difficulty, sort, every table row (run cells ending in `*` are gold best cells), and `horizontalOverflow`. |
@@ -63,7 +63,7 @@ Commands act on the single page in this run's Chrome. Each one reconnects, so th
 
 Stable handles in this app:
 
-- **Fields.** The labels are `Current level`, `XP into this level` and `Target level`.
+- **Fields.** The labels are `Current EXP` and `Target level`.
 - **Buttons.** The campaign chips are buttons named by campaign, e.g. `World Adventures` or `Nightmare Adventures`, and expose `aria-pressed`. The sort buttons are `Adventure`, `Stars` and `XP / run`.
 - **Links.** The nav spine link is named `Legends of Runeterra Champion XP planner`, and the home link is `z-tools home`.
 
@@ -77,7 +77,7 @@ Proof standards:
 
 - **Drive the user path.** Type into fields, click chips, and load URLs a user could load. Do not call component internals or set React state.
 - **Capture both sides.** Record the action and the resulting state: a snapshot before and after, or the command output plus a snapshot.
-- **Check the numbers.** For a numeric claim, recompute it independently from `src/tools/lor-xp/data/*.json` and compare it with the snapshot. Do not compare the UI with `model.ts`, because that is the code under test. Total XP to reach level L is the sum of `levels.json` `xpToNext[0..L-2]`. Runs are `ceil(remaining / (adventure.xp × multiplier))`.
+- **Check the numbers.** For a numeric claim, recompute it independently from `src/tools/lor-xp/data/*.json` and compare it with the snapshot. Do not compare the UI with `model.ts`, because that is the code under test. Total XP to reach level L is the sum of `levels.json` `xpToNext[0..L-2]`, and the input is that total. Runs are `ceil(remaining / (adventure.xp × multiplier))`.
 - **Verify side effects.** The only one is the URL query, which is read back from `snapshot.url`.
 - **Cover phone width.** For layout claims, take a screenshot at 390 wide and check `horizontalOverflow: false`.
 

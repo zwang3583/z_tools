@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { ADVENTURES, MAX_LEVEL, normalizeProgress, plan, totalXp, xpToNext } from './model'
+import { ADVENTURES, MAX_LEVEL, MAX_TOTAL_XP, clampExp, levelAt, plan, xpToNext } from './model'
 import { CAMPAIGNS, MULTIPLIERS, type Adventure, type CampaignId, type Multiplier } from './types'
 
 type SortKey = 'xp' | 'stars' | 'name'
@@ -55,29 +55,28 @@ function SortHeader({ label, k, sort, onSort, className }: {
 
 export default function LorXpPage() {
   const [params, setParams] = useSearchParams()
-  const [levelRaw, setLevelRaw] = useState(params.get('level') ?? '1')
-  const [xpRaw, setXpRaw] = useState(params.get('xp') ?? '0')
+  const [expRaw, setExpRaw] = useState(() => fmt.format(toInt(params.get('exp') ?? '', 0)))
   const [targetRaw, setTargetRaw] = useState(params.get('target') ?? String(MAX_LEVEL))
   const [off, setOff] = useState<Set<CampaignId>>(new Set())
   const [maxStars, setMaxStars] = useState<number | null>(null)
   const [sort, setSort] = useState<Sort>({ key: 'xp', dir: 'desc' })
 
-  const sync = (next: { level?: string; xp?: string; target?: string }) => {
-    const merged = { level: levelRaw, xp: xpRaw, target: targetRaw, ...next }
-    setParams({ level: digits(merged.level), xp: digits(merged.xp), target: digits(merged.target) }, { replace: true })
+  const sync = (next: { exp?: string; target?: string }) => {
+    const merged = { exp: expRaw, target: targetRaw, ...next }
+    setParams({ exp: digits(merged.exp), target: digits(merged.target) }, { replace: true })
   }
 
-  const progress = normalizeProgress(toInt(levelRaw, 1), toInt(xpRaw, 0))
+  const exp = clampExp(toInt(expRaw, 0))
+  const progress = levelAt(exp)
   const target = Math.min(MAX_LEVEL, Math.max(1, toInt(targetRaw, MAX_LEVEL)))
   const cap = xpToNext(progress.level)
-  const xpClamped = cap > 0 && digits(xpRaw) !== '' && toInt(xpRaw, 0) !== progress.xpIntoLevel
-  const levelClamped = digits(levelRaw) !== '' && toInt(levelRaw, 1) !== progress.level
+  const expClamped = digits(expRaw) !== '' && toInt(expRaw, 0) !== exp
 
   const pool = useMemo(
     () => ADVENTURES.filter((a) => !off.has(a.campaign) && (maxStars === null || a.stars <= maxStars)),
     [off, maxStars],
   )
-  const result = useMemo(() => plan(progress, target, pool), [progress.level, progress.xpIntoLevel, target, pool])
+  const result = useMemo(() => plan(exp, target, pool), [exp, target, pool])
   const rows = useMemo(() => [...result.rows].sort((a, b) => compare(sort)(a.adventure, b.adventure)), [result, sort])
   const byId = useMemo(() => new Map(ADVENTURES.map((a) => [a.id, a])), [])
   const done = result.xpRemaining === 0
@@ -100,51 +99,26 @@ export default function LorXpPage() {
       <section className="inputs" aria-labelledby="inputs-heading">
         <h2 id="inputs-heading" className="visually-hidden">Your champion</h2>
         <div className="field">
-          <label htmlFor="level">Current level</label>
+          <label htmlFor="exp">Current EXP</label>
           <input
-            id="level"
-            type="number"
+            id="exp"
+            type="text"
             inputMode="numeric"
-            min={1}
-            max={MAX_LEVEL}
-            value={levelRaw}
+            autoComplete="off"
+            value={expRaw}
             onChange={(e) => {
-              setLevelRaw(e.target.value)
-              sync({ level: e.target.value })
+              setExpRaw(e.target.value)
+              sync({ exp: e.target.value })
             }}
-            onBlur={() => setLevelRaw(String(progress.level))}
-            aria-describedby="level-hint"
+            onBlur={() => setExpRaw(fmt.format(exp))}
+            aria-describedby="exp-hint"
           />
-          <p id="level-hint" className={`hint${levelClamped ? ' is-warn' : ''}`}>
-            {levelClamped ? `Levels run 1 to ${MAX_LEVEL}; using ${progress.level}.` : `1 to ${MAX_LEVEL}`}
-          </p>
-        </div>
-
-        <div className="field">
-          <label htmlFor="xp">XP into this level</label>
-          <div className="xp-input">
-            <input
-              id="xp"
-              type="text"
-              inputMode="numeric"
-              autoComplete="off"
-              value={cap === 0 ? '0' : xpRaw}
-              disabled={cap === 0}
-              onChange={(e) => {
-                setXpRaw(e.target.value)
-                sync({ xp: e.target.value })
-              }}
-              onBlur={() => setXpRaw(fmt.format(progress.xpIntoLevel))}
-              aria-describedby="xp-hint"
-            />
-            <span className="xp-cap">/ {cap === 0 ? 'max' : fmt.format(cap)}</span>
-          </div>
-          <p id="xp-hint" className={`hint${xpClamped ? ' is-warn' : ''}`}>
-            {cap === 0
-              ? 'Max level reached.'
-              : xpClamped
-                ? `Level ${progress.level} holds at most ${fmt.format(cap - 1)} XP; using that.`
-                : 'As shown on your XP bar.'}
+          <p id="exp-hint" className={`hint${expClamped ? ' is-warn' : ''}`}>
+            {expClamped
+              ? `The most a champion can hold is ${fmt.format(MAX_TOTAL_XP)}; using that.`
+              : cap === 0
+                ? `Level ${MAX_LEVEL}, the max.`
+                : `Level ${progress.level}, ${fmt.format(progress.xpIntoLevel)} / ${fmt.format(cap)} toward ${progress.level + 1}.`}
           </p>
         </div>
 
@@ -172,8 +146,8 @@ export default function LorXpPage() {
             <dd className="totals-main">{fmt.format(result.xpRemaining)}</dd>
           </div>
           <div>
-            <dt>Earned so far</dt>
-            <dd>{fmt.format(totalXp(progress))}</dd>
+            <dt>Current level</dt>
+            <dd>{progress.level}</dd>
           </div>
         </dl>
       </section>
