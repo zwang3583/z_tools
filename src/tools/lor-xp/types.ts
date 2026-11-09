@@ -6,6 +6,7 @@ export const CAMPAIGNS = [
   { id: 'rogues-of-runeterra', name: 'Rogues of Runeterra' },
   { id: 'spirit-blossom', name: 'Spirit Blossom' },
   { id: 'teamfight-adventures', name: 'Teamfight Adventures' },
+  { id: 'wicked-path', name: 'The Wicked Path' },
 ] as const
 
 export type CampaignId = (typeof CAMPAIGNS)[number]['id']
@@ -19,7 +20,8 @@ export interface Adventure {
   xp: number
   /** XP for the shorter route when the adventure has two, otherwise null. */
   shortPathXp: number | null
-  wikiUrl: string
+  /** Null for values not yet on the wiki, which come from scripts/lor-manual-adventures.json. */
+  wikiUrl: string | null
 }
 
 export const MULTIPLIERS = [5, 10, 15, 20, 25, 30] as const

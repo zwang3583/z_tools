@@ -27,6 +27,8 @@ Add an entry to `TOOLS` in `src/tools/registry.ts` with its path, game, title, s
 npm run sync:lor
 ```
 
+Adventures the wiki doesn't list yet go in `scripts/lor-manual-adventures.json` with a `source` line. The sync merges them, and once the wiki lists the same name and campaign, the wiki value wins and the script prints a note to delete the manual entry.
+
 The script exits non-zero if a wiki row fails to parse or the level table's running totals disagree with the wiki. Adventures with two routes store the longer route as `xp` and the shorter as `shortPathXp`.
 
 ## Deploy

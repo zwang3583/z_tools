@@ -493,5 +493,14 @@
     "xp": 6030,
     "shortPathXp": null,
     "wikiUrl": "https://wiki.leagueoflegends.com/en-us/LoR:Teamfight_Adventures/Scourge_of_the_Pit"
+  },
+  {
+    "id": "prisonBreakHuntWickedPath",
+    "name": "Prison Break Hunt",
+    "campaign": "wicked-path",
+    "stars": 6.5,
+    "xp": 6885,
+    "shortPathXp": null,
+    "wikiUrl": null
   }
 ]

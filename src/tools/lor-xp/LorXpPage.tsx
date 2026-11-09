@@ -277,9 +277,13 @@ export default function LorXpPage() {
                 {rows.map(({ adventure: a, runs }) => (
                   <tr key={a.id}>
                     <th scope="row" className="col-name">
-                      <a href={a.wikiUrl} target="_blank" rel="noreferrer" className="adv-name">
-                        {a.name}
-                      </a>
+                      {a.wikiUrl ? (
+                        <a href={a.wikiUrl} target="_blank" rel="noreferrer" className="adv-name">
+                          {a.name}
+                        </a>
+                      ) : (
+                        <span className="adv-name">{a.name}</span>
+                      )}
                       <span className="adv-campaign">
                         <span className="adv-campaign-name">{campaignName[a.campaign]}</span>
                         <span className="adv-stars-inline">
@@ -297,6 +301,7 @@ export default function LorXpPage() {
                       {bonus > 0 && (
                         <span className="adv-route">+{fmt.format(xpPerRun(a.xp, 0, bonus) - a.xp)} gemstone</span>
                       )}
+                      {a.wikiUrl === null && <span className="adv-route">in-game value</span>}
                       {a.shortPathXp !== null && (
                         <span className="adv-route">long route · short {fmt.format(a.shortPathXp)}</span>
                       )}
@@ -318,7 +323,7 @@ export default function LorXpPage() {
           <a href="https://wiki.leagueoflegends.com/en-us/LoR:Adventures" target="_blank" rel="noreferrer">
             Legends of Runeterra wiki
           </a>
-          . Adventures with two routes use the longer route; take it to match these counts. Each run earns the adventure's XP,
+          . Values marked in-game value are not on the wiki yet and come from play. Adventures with two routes use the longer route; take it to match these counts. Each run earns the adventure's XP,
           plus your gemstone bonus of it, plus the adventure's XP times the multiplier, rounded down.
         </p>
       </section>

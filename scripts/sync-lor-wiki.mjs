@@ -1,4 +1,4 @@
-import { writeFileSync } from 'node:fs'
+import { readFileSync, writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 
 const API = 'https://wiki.leagueoflegends.com/en-us/api.php'
@@ -116,6 +116,19 @@ for (const [campaign, page] of CAMPAIGN_PAGES) {
   if (blocks.length === 0) fail(`${page}: no {{PoC Adventure row}} blocks`)
   blocks.forEach((block, i) => adventures.push(parseAdventure(block, campaign, page, i)))
 }
+const manual = JSON.parse(readFileSync(new URL('./lor-manual-adventures.json', import.meta.url), 'utf8'))
+for (const m of manual) {
+  for (const key of ['id', 'name', 'campaign', 'stars', 'xp', 'source'])
+    if (m[key] === undefined || m[key] === '') fail(`lor-manual-adventures.json: ${m.id ?? m.name} is missing ${key}`)
+  if (!Number.isInteger(m.xp) || m.xp <= 0) fail(`lor-manual-adventures.json: ${m.id} xp must be a positive integer`)
+  const onWiki = adventures.find((a) => a.campaign === m.campaign && a.name === m.name)
+  if (onWiki) {
+    console.warn(`note: the wiki now lists ${m.name} (${m.campaign}) at ${onWiki.xp} XP; delete it from lor-manual-adventures.json`)
+    continue
+  }
+  adventures.push({ id: m.id, name: m.name, campaign: m.campaign, stars: m.stars, xp: m.xp, shortPathXp: m.shortPathXp ?? null, wikiUrl: null })
+}
+
 const ids = new Set()
 for (const a of adventures) {
   if (ids.has(a.id)) fail(`duplicate adventure id ${a.id}`)

@@ -148,6 +148,7 @@ describe('adventure data', () => {
     expect(byName('With Friends Like These...')).toMatchObject({ xp: 11970, stars: 10, campaign: 'nightmare' })
     expect(byName('The Deep Voice Below the Waves', 'nightmare')).toMatchObject({ xp: 5230, stars: 6 })
     expect(byName('The Star Forger', 'legends-of-arcane')).toMatchObject({ xp: 10670, stars: 6.5 })
+    expect(byName('Prison Break Hunt')).toMatchObject({ xp: 6885, stars: 6.5, campaign: 'wicked-path', wikiUrl: null })
   })
 
   it('has unique ids and positive integer xp', () => {
